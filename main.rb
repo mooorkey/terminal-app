@@ -28,7 +28,17 @@ welcome(hotel)
 puts
 puts "Hello Human!"
 puts "What is your cat's name?"
-cat_name = gets.chomp.capitalize
+
+# loop to make sure the user types in something
+while true
+    cat_name = gets.chomp.capitalize
+    if cat_name != "" 
+        break
+    else
+        puts "Ooops, please enter your cat's name:"
+    end
+end
+
 clear
 puts "Meow #{cat_name}!"
 

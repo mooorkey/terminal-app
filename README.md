@@ -19,6 +19,7 @@ description here
 ### 💎 TTY-Prompt
 
 We chose to use the TTY-Prompt gem, as this cuts out user error when accessing the menus. The user can not input incorrect information, but instead selects from a list. One difficulty with using this gem is we had to change our data (such as a room's availability that is stored in a hash) to a format that the menu recognizes.  We believe that it is worth this extra step in the code, as we do not have to worry about incorrect user input, it makes navigating the application easier, and also because the menu is formatted nicely.
+It is recommended to use a font that supports unicode for this gem to look extra pretty.
 
 ## Screenshots
 
