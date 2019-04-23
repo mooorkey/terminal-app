@@ -1,10 +1,23 @@
 class Room
+    attr_reader :type, :features, :price, :availability
 
     def initialize(type, features, price, availability)
         @type = type
         @features = features
-        @price = price
+        @price = '%.2f' % price
         @availability = availability
+    end
+
+    def display_room
+        puts "Room Type: #{@type}"
+        puts "Features: #{@features}"
+        puts "Price: $#{@price}"
+        puts "Availibilty:"
+        @availability.each { |day, status| puts "    - #{day}: #{status}" }
+    end
+
+    def 
+
     end
 end
 
@@ -29,5 +42,5 @@ end
 # p deluxe
 
 # luxury = Luxury.new
-# p luxury
+# luxury.display_room
 
