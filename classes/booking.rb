@@ -2,9 +2,9 @@ require_relative 'room'
 require_relative 'hotel'
 
 class Booking
-    def initialize
-        @room = ""      # room object
-        @days = []      # an array of the days associated with the booking
+    def initialize(room, days)
+        @room = room      # room object
+        @days = days     # an array of the days associated with the booking
     end
 
     def choose_room

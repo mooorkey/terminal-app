@@ -2,7 +2,7 @@ class Cat
     def initialize(name, age)
         @name = name
         @age = age
-        @booking = false
+        @booking = nil
     end
 end
 

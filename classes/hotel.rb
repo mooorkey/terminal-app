@@ -1,4 +1,4 @@
-require 'tty-prompt'
+# require 'tty-prompt'
 require_relative 'room'
 
 class Hotel
@@ -16,14 +16,32 @@ class Hotel
 
     def display_rooms
         puts "Room Type:"
-        @rooms.each { |room| puts "    * #{room.type}"}
+        @rooms.each { |room| puts "#{room.type}" }
     end
 
     def choose_room
+        # @rooms.each do |room|
+        #     room_menu.push(room.type)
+        # end
+        # menu = TTY::Prompt.new
+        # menu.multi_select("Please select your room:", MENU, cycle: true, marker: '>', echo: false, per_page: 7).each do |room|
+        #     room.select_days
+        # end
+
         display_rooms
-        puts "Please select your room type:"
-        room_choice = gets.chomp
+        puts "Please select a room type to view more information:"
+        room_choice = gets.chomp.capitalize
+        @rooms.each do |room|
+            if room_choice == room.type
+                room.display_room
+                return 
+            end
+        end
+        # if it gets here, it hasn't found a room
+        puts "Sorry that is not a valid selection, please enter a valid room type."
+        choose_room
     end
+
 end
 
 # TESTING
