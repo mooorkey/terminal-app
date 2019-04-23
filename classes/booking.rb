@@ -1,7 +1,7 @@
 # require_relative 'room'
 # require_relative 'hotel'
 require_relative 'cat'
-require_relative '../methods/methods'
+require_relative '../methods/pretty'
 
 class Booking
     attr_reader :days

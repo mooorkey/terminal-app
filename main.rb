@@ -3,7 +3,7 @@ require_relative './classes/hotel'
 require_relative './classes/room'
 require_relative './classes/cat'
 require_relative './classes/booking'
-require_relative './methods/methods'
+require_relative './methods/pretty'
 
 # Create a hotel and rooms
 hotel = Hotel.new.add_room(Deluxe.new).add_room(Luxury.new).add_room(Grey.new)
@@ -45,12 +45,14 @@ while currently_using
                 puts "You already have a booking! \n\n"
             else
                 clear
+                new_booking_header
 
                 # Display list of room types and select a room
                 room = hotel.select_room
                 
                 # Display room details
                 clear
+                new_booking_header
                 room.display_room
                 room.display_features
                 puts
@@ -87,10 +89,12 @@ while currently_using
         # View hotel room types
         when 3
             clear
+            view_rooms_header
             room = hotel.select_room
             
             # Display details of room selected
             clear
+            room_name_header(room.type)
             room.display_room
             room.display_features
             room.display_availability

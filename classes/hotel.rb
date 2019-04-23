@@ -1,7 +1,6 @@
 require 'tty-prompt'
-require 'artii'
 require_relative 'room'
-require_relative '../methods/methods'
+require_relative '../methods/pretty'
 
 class Hotel
     attr_reader :rooms
@@ -12,15 +11,19 @@ class Hotel
         @phone = "1800 MEOW MEOW"
         @email = "say_meow@purrseasons.com"
         @rooms = []  # Array of room objects
-        @about = "blurb about the hotel"
+        @about = "~ An Experience Your Cat Wont Forget ~ \n The Purr Seasons is a luxury cat hotel. \n It's so good you'll wish you could stay too!"
     end
 
     def contact_info
-        puts "#{@name}"
-        puts "#{@address}"
-        puts "#{@phone}"
-        puts "#{@email}"
-        puts "#{@about}"
+        puts HEADER_LINE
+        puts "#{@name.upcase}".center(HEADER_LENGTH)
+        puts HEADER_LINE
+        puts " Address: #{@address}"
+        puts " Phone No: #{@phone}"
+        puts " Email: #{@email}"
+        puts
+        puts "   #{@about}"
+        puts HEADER_LINE
     end
 
     def add_room(room)

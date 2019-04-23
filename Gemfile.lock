@@ -1,7 +1,6 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    artii (2.1.2)
     equatable (0.5.0)
     necromancer (0.4.0)
     pastel (0.7.2)
@@ -27,7 +26,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  artii
   tty-prompt
 
 BUNDLED WITH
