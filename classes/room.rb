@@ -5,7 +5,7 @@ class Room
 
     def initialize(type, features, price, availability)
         @type = type
-        @features = features                # array of features
+        @features = features                # array of features - we could use this in a future enhancement to be able to search by feature
         @price = '%.2f' % price
         @availability = availability        # hash of availability. i.e. Monday: "Available" 
     end
@@ -31,6 +31,7 @@ class Room
     end
 
     # selects the days for a booking, based on room's availability
+    # the method for selcting the days has been split into several methods so that each method has an individual & specific purpose. 
     def select_days
         days_menu = []
         days_selected = []

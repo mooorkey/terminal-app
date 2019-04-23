@@ -4,13 +4,18 @@
 
 by Natalie Sargent and Carlie Hamilton
 
-## GitHub Repository
+## Resources
 
 Link to the repository - [https://github.com/natkat9/terminal-app](https://github.com/natkat9/terminal-app "Our Github Repository")
+Link to our testing spreadsheet - 
 
 ## Description of the app
 
 description here
+
+## Installation and Use
+
+To use this app, clone or fork the repository and `bundle install` to download the required gems.
 
 ## Purpose
 

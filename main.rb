@@ -29,26 +29,24 @@ puts
 puts "Hello Human!"
 puts "What is your cat's name?"
 
-# loop to make sure the user types in something
+# Creating a cat - loop to make sure the user types in something
 while true
     cat_name = gets.chomp.capitalize
     if cat_name != "" 
+        clear
         break
     else
         puts "Ooops, please enter your cat's name:"
     end
 end
-
-clear
-puts "Meow #{cat_name}!"
-
-# create a cat
 cat = Cat.new(cat_name)
+puts "Meow #{cat.name}!"
 
 # Main Application Loop
 while true
     
     # Display hotel menu options
+    welcome(hotel)
     selection = TTY::Prompt.new.select("How can we assist you today? Please select from the following options:",  cycle: true, marker: '>', echo: false) do |menu|
         menu.choice('Make a new booking', 1)
         menu.choice('View an existing booking', 2)
@@ -79,13 +77,12 @@ while true
                 booking_days = room.select_days
 
                 # Create a new booking with room type and booking days
-                booking = Booking.new(room, booking_days)
-                cat.booking = booking
+                cat.booking = Booking.new(room, booking_days)
 
                 # Display booking for user including price
                 clear
                 puts "Thank you for your booking!"
-                booking.display_booking(cat)
+                cat.booking.display_booking(cat)
 
                 # Option to return to main menu or quit
                 any_key
