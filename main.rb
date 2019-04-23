@@ -32,7 +32,7 @@ while currently_using
     puts "1. Make a new booking"
     puts "2. View an existing booking"
     puts "3. View hotel room types"
-    puts "4. View hotel information"
+    puts "4. View hotel contact information"
     puts "Q. to Quit"
 
     case gets.chomp
@@ -83,24 +83,46 @@ while currently_using
 
     when "2"
         # View an existing booking
-        # Dispaly booking for user
-        # Stretch: provide option to cancel
+        clear
+        booking.display_booking
+
         # Return to main menu or quit
+        any_key
 
     when "3"
         # View hotel room types
-        # Display a list of room types
+        clear
+        hotel.display_rooms
+        
         # Choose a room type
+        room = hotel.choose_room 
+
         # Display details of room selected
+        clear
+        room.display_room
+
         # Return to main menu or quit
+        any_key
 
     when "4"
-        # View hotel information
-        # Display hotel details
+        # View hotel contact information
+        clear
+        hotel.contact
+
         # Return to main menu or quit
+        any_key
         
     when "q", "Q"
         # quit
+        if cat.booking
+            puts "Thank you #{cat_name}!"
+            puts "We look forward to welcoming you on #{booking.days[0]}"  # check this
+            currently_using = false
+        else 
+            puts "Thank you #{cat_name}"
+            puts "We hope to see you soon"
+            currently_using = false
+        end
     end
 
 

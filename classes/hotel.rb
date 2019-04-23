@@ -8,7 +8,15 @@ class Hotel
         @name = "Purr Seasons"
         @address = "32 Cat St"
         @phone = "1800 MEOW MEOW"
+        @email = "say_meow@purrseasons.com"
         @rooms = []  # Array of room objects
+    end
+
+    def contact
+        puts "#{@name}"
+        puts "#{@address}"
+        puts "#{@phone}"
+        puts "#{@email}"
     end
 
     def add_room(room)

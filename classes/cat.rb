@@ -1,5 +1,5 @@
 class Cat
-    attr_writer :booking
+    attr_accessor :booking
 
     def initialize(name)
         @name = name
