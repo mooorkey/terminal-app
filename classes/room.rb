@@ -10,33 +10,36 @@ class Room
         @availability = availability        # hash of availability. i.e. Monday: "Available" 
     end
 
-    # method to display the room and it's features
+    # displays the room type and it's price
     def display_room
         puts "Room Type: #{@type}"
         puts "Price: $#{@price} per night"
     end
     
+    # displays a room's features
     def display_features
+        puts
         puts "Features:"
         @features.each { |feature| puts "       * #{feature}"}
     end
 
+    # displays the room's availability
     def display_availability
         puts
         puts "Availability:"
         @availability.each { |day, status| puts "       * #{day}: #{status}"}
     end
 
-    # method to select the days for a booking, based on room's availability
+    # selects the days for a booking, based on room's availability
     def select_days
-        days_menu = [ ]
+        days_menu = []
         days_selected = []
         select_days_menu(days_menu)
         select_days_selection(days_selected, days_menu)
         return days_selected
     end
 
-    # This method takes the room's availability and formats it for the TTY-Prompt gem - so that we can have a pretty options menu
+    # takes the room's availability and formats it for the TTY-Prompt gem - so that we can have a pretty options menu
     def select_days_menu(days_menu)
         @availability.each do |day, status|
             if status != "Available"                                           
@@ -47,7 +50,7 @@ class Room
         end
     end
 
-    # This method is where the user selects the days they want for the order. 
+    # user selects the days they would like for their booking, based on the room's availability
     def select_days_selection(days_selected, days_menu)
         TTY::Prompt.new.multi_select("Please select your days to book in:", days_menu, cycle: true, marker: '>', echo: false, per_page: 7).each do |day|
             @availability[day.to_sym] = "Booked Out"

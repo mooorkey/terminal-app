@@ -3,7 +3,7 @@ class Cat
 
     def initialize(name)
         @name = name
-        # @age = age
+        # @age = age    # future extension - grab more details about the cat, and recommend a room, for instance, if cat is a certain age
         @booking = nil
     end
 end

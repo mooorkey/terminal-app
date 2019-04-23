@@ -1,3 +1,15 @@
+#---------------------------------------------------------------------------------------------------------------------
+#                            PURR SEASONS CAT HOTEL
+#                                  Terminal App
+#
+#                    Creatively and Lovingly Hand Crafted by
+#                      Natalie Sargent and Carlie Hamilton
+#                 for our Coder Academy - Ruby Terminal Assignment
+#                   
+#  Version 1.3
+#  24 April 2019
+#---------------------------------------------------------------------------------------------------------------------
+
 require 'tty-prompt'
 require_relative './classes/hotel'
 require_relative './classes/room'
@@ -10,14 +22,13 @@ hotel = Hotel.new.add_room(Deluxe.new).add_room(Luxury.new).add_room(Grey.new)
 
 # Welcome message
 clear
-hotel.welcome
+welcome(hotel)
 
 # Enter Cat guest details
 puts
 puts "Hello Human!"
 puts "What is your cat's name?"
 cat_name = gets.chomp.capitalize
-
 clear
 puts "Meow #{cat_name}!"
 
@@ -25,11 +36,10 @@ puts "Meow #{cat_name}!"
 cat = Cat.new(cat_name)
 
 # Main Application Loop
-currently_using = true
-while currently_using
+while true
     
     # Display hotel menu options
-    selection = TTY::Prompt.new.select("How can we assist you today? Please select from the following options:",  cycle: true, marker: '>', echo: false,) do |menu|
+    selection = TTY::Prompt.new.select("How can we assist you today? Please select from the following options:",  cycle: true, marker: '>', echo: false) do |menu|
         menu.choice('Make a new booking', 1)
         menu.choice('View an existing booking', 2)
         menu.choice('View hotel rooms', 3)
@@ -113,13 +123,15 @@ while currently_using
         # Quit
         when 5
             if cat.booking
+                clear
                 puts "Thank you #{cat_name}!"
                 puts "We look forward to welcoming you on #{cat.booking.days[0]}"  # check this
-                currently_using = false
+                return
             else 
+                clear
                 puts "Thank you #{cat_name}"
                 puts "We hope to see you soon"
-                currently_using = false
+                return
             end
         end
     end

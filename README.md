@@ -1,40 +1,33 @@
-README.md
+# PURR SEASONS
 
-Project documentation is to be compiled as a single markdown file named README.md
+## Ruby Terminal App
 
-This file should contain,
+by Natalie Sargent and Carlie Hamilton
 
-A link to your GitHub repository
-Ensure the repository (repo) is accessible by your Educators
-Description of the app, including,
-Purpose
-Functionality
-Instructions for use
-Screenshots
-Details of design & planning process including,
-Evidence of app idea brainstorming sessions
-app User/Workflow diagram
-Project plan & timeline
-Screenshots of Trello board(s)
-/
-(Root folder of your zip file)
+## GitHub Repository
 
-Resources
+Link to the repository - [https://github.com/natkat9/terminal-app](https://github.com/natkat9/terminal-app "Our Github Repository")
 
-All files linked by the README.md file must be included in a folder named docs
+## Description of the app
 
-All resources included in this folder must be in either png, jpeg, pdf, or markdown format
+description here
 
-docs/
+## Purpose
 
-Source Code
+## Functionality
 
-Source code for your entire app
+### 💎 TTY-Prompt
 
-src/
+We chose to use the TTY-Prompt gem, as this cuts out user error when accessing the menus. The user can not input incorrect information, but instead selects from a list. One difficulty with using this gem is we had to change our data (such as a room's availability that is stored in a hash) to a format that the menu recognizes.  We believe that it is worth this extra step in the code, as we do not have to worry about incorrect user input, it makes navigating the application easier, and also because the menu is formatted nicely.
 
-Presentation
+## Screenshots
 
-Slide deck of your presentation in pdf format
+## Details of design & planning process
 
-ppt/
+### Evidence of app idea brainstorming sessions
+
+### app User/Workflow diagram
+
+### Project plan & timeline
+
+### Screenshots of Trello board(s)
