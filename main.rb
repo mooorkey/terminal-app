@@ -11,7 +11,9 @@ hotel = Hotel.new.add_room(Deluxe.new).add_room(Luxury.new)
 puts "Welcome to the Purr Seasons Cat Hotel"
 
 # Enter Cat guest details
-puts "Hello Human! Please enter your cat's name:"
+puts
+puts "Hello Human!"
+puts "What is your cat's name?"
 cat_name = gets.chomp.capitalize
 
 clear
@@ -41,34 +43,14 @@ while currently_using
     when "1"
         clear
 
-        # Display a list of room types
-        hotel.display_rooms
+        # Display list of room types and select a room
+        room = hotel.select_room
         
-        # Choose a room type
-        room = hotel.choose_room    
-
         # Display room details
         clear
         room.display_room
-
-        # Ask user if they want to book this room or view another
-        # If user wants to book, display availability for user to select days
-        # Or display room list for them to select another
-
-        puts
-        ##### THE FLOW ISN"T WORKING HERE... WILL HAVE TO RE THINK THE FLOW
-        puts "Would you like to (b)ook this room or go back to the main menu?"      # or (v)iew another room type? <-- later
-        case gets.chomp.downcase
-        when "b", "book"
-            clear
-            booking_days = room.select_days
-        when "v", "view"
-            hotel.display_rooms
-            hotel.choose_room
-        else
-            puts "something went wrong"
-            room.display_room
-        end
+        
+        booking_days = room.select_days
 
         # Create a new booking with room type and booking days
         booking = Booking.new(room, booking_days)
@@ -92,11 +74,8 @@ while currently_using
     when "3"
         # View hotel room types
         clear
-        hotel.display_rooms
+        room = hotel.select_room
         
-        # Choose a room type
-        room = hotel.choose_room 
-
         # Display details of room selected
         clear
         room.display_room

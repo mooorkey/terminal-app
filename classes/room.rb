@@ -13,9 +13,7 @@ class Room
     def display_room
         puts "Room Type: #{@type}"
         puts "Features: #{@features}"
-        puts "Price: $#{@price}"
-        puts "Availibilty:"
-        @availability.each { |day, status| puts "    - #{day}: #{status}" }
+        puts "Price: $#{@price} per night"
     end
 
     def select_days

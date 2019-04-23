@@ -1,4 +1,4 @@
-# require 'tty-prompt'
+require 'tty-prompt'
 require_relative 'room'
 
 class Hotel
@@ -10,6 +10,7 @@ class Hotel
         @phone = "1800 MEOW MEOW"
         @email = "say_meow@purrseasons.com"
         @rooms = []  # Array of room objects
+        @about = "blurb about the hotel"
     end
 
     def contact
@@ -24,24 +25,12 @@ class Hotel
         return self
     end
 
-    def display_rooms
-        puts "Room Type:"
-        @rooms.each { |room| puts "#{room.type}" }
-    end
-
-    def choose_room
-        puts "Please select a room type to view more information:"
-        room_choice = gets.chomp.capitalize
-        @rooms.each do |room|
-            if room_choice == room.type
-                # Display details of room selected
-                return room
-            end
-        end
-        # if it gets here, it hasn't found a room
-        puts "Sorry that is not a valid selection, please enter a valid room type."
-        # WE NEED A WAY TO QUIT
-        choose_room
+    def select_room
+        prompt = TTY::Prompt.new
+        menu = []
+        @rooms.each { |room| menu.push(room.type)}
+        selection = prompt.select("Choose a room type", menu, cycle: true, marker: '>', echo: false,)
+            @rooms.each { |room| return room if room.type == selection }
     end
 
 end
@@ -50,7 +39,7 @@ end
 
 # hotel = Hotel.new
 # hotel.add_room(Deluxe.new).add_room(Luxury.new)
-# hotel.choose_room
+# p hotel.select_room
 
 
 
