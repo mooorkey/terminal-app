@@ -1,5 +1,7 @@
-require_relative 'room'
-require_relative 'hotel'
+# require_relative 'room'
+# require_relative 'hotel'
+require_relative 'cat'
+require_relative '../methods/methods'
 
 class Booking
     attr_reader :days
@@ -9,15 +11,20 @@ class Booking
         @days = days     # an array of the days associated with the booking
     end
 
-    def display_booking
-        puts # Hotel information
-        puts # Guest details
+    def display_booking(cat)
+        puts HEADER_LINE
+        puts "#{cat.name.upcase}'S BOOKING".center(HEADER_LENGTH)
+        puts HEADER_LINE
+        puts
         puts "Room Type: #{@room.type}"
-        puts # Room features
+        @room.display_features
+        puts
         puts "Booking Days:"
-        puts @days  # MAKE THIS PRETTY ON ONE LINE
-        puts "#{@days.length}x $#{@room.price}"
-        puts "Total Price: $#{'%.2f' % booking_price}"
+        @days.each { |day| puts "       * #{day}"}
+        puts
+        puts HEADER_LINE
+        puts "#{@days.length} days @ $#{@room.price} each".rjust(HEADER_LENGTH)
+        puts "Total Price: $#{'%.2f' % booking_price}".rjust(HEADER_LENGTH)
 
     end
 

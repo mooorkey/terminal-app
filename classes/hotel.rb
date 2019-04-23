@@ -1,5 +1,7 @@
 require 'tty-prompt'
+require 'artii'
 require_relative 'room'
+require_relative '../methods/methods'
 
 class Hotel
     attr_reader :rooms
@@ -13,11 +15,12 @@ class Hotel
         @about = "blurb about the hotel"
     end
 
-    def contact
+    def contact_info
         puts "#{@name}"
         puts "#{@address}"
         puts "#{@phone}"
         puts "#{@email}"
+        puts "#{@about}"
     end
 
     def add_room(room)
@@ -26,11 +29,17 @@ class Hotel
     end
 
     def select_room
-        prompt = TTY::Prompt.new
         menu = []
         @rooms.each { |room| menu.push(room.type)}
-        selection = prompt.select("Choose a room type", menu, cycle: true, marker: '>', echo: false,)
+        selection = TTY::Prompt.new.select("Choose a room type", menu, cycle: true, marker: '>', echo: false,)
             @rooms.each { |room| return room if room.type == selection }
+    end
+
+    def welcome
+        puts HEADER_LINE
+        puts "WELCOME TO THE".center(HEADER_LENGTH)
+        puts "#{@name} Hotel!".center(HEADER_LENGTH)
+        puts HEADER_LINE
     end
 
 end

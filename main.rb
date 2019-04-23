@@ -6,10 +6,11 @@ require_relative './classes/booking'
 require_relative './methods/methods'
 
 # Create a hotel and rooms
-hotel = Hotel.new.add_room(Deluxe.new).add_room(Luxury.new)
+hotel = Hotel.new.add_room(Deluxe.new).add_room(Luxury.new).add_room(Grey.new)
 
 # Welcome message
-puts "Welcome to the Purr Seasons Cat Hotel"
+clear
+hotel.welcome
 
 # Enter Cat guest details
 puts
@@ -26,12 +27,12 @@ cat = Cat.new(cat_name)
 # Main Application Loop
 currently_using = true
 while currently_using
-
+    
     # Display hotel menu options
     selection = TTY::Prompt.new.select("How can we assist you today? Please select from the following options:",  cycle: true, marker: '>', echo: false,) do |menu|
         menu.choice('Make a new booking', 1)
         menu.choice('View an existing booking', 2)
-        menu.choice('View hotel room types', 3)
+        menu.choice('View hotel rooms', 3)
         menu.choice('View hotel contact information', 4)
         menu.choice('Exit', 5)
 
@@ -39,61 +40,77 @@ while currently_using
 
         # 1. Make a new booking
         when 1
-            clear
+            if cat.booking
+                clear
+                puts "You already have a booking! \n\n"
+            else
+                clear
 
-            # Display list of room types and select a room
-            room = hotel.select_room
-            
-            # Display room details
-            clear
-            room.display_room
-            
-            booking_days = room.select_days
+                # Display list of room types and select a room
+                room = hotel.select_room
+                
+                # Display room details
+                clear
+                room.display_room
+                room.display_features
+                puts
+                booking_days = room.select_days
 
-            # Create a new booking with room type and booking days
-            booking = Booking.new(room, booking_days)
-            cat.booking = booking
+                # Create a new booking with room type and booking days
+                booking = Booking.new(room, booking_days)
+                cat.booking = booking
 
-            # Display booking for user including price
-            clear
-            booking.display_booking
+                # Display booking for user including price
+                clear
+                puts "Thank you for your booking!"
+                booking.display_booking(cat)
 
-            # Option to return to main menu or quit
-            any_key
+                # Option to return to main menu or quit
+                any_key
+            end
 
+        # View an existing booking
         when 2
-            # View an existing booking
-            clear
-            booking.display_booking
+            
+            if cat.booking
+                # View an existing booking
+                clear
+                cat.booking.display_booking(cat)
 
-            # Return to main menu or quit
-            any_key
+                # Return to main menu or quit
+                any_key
+            else
+                clear
+                puts "Ooops, sorry, you don't have a booking yet! \n\n"
+            end
 
+        # View hotel room types
         when 3
-            # View hotel room types
             clear
             room = hotel.select_room
             
             # Display details of room selected
             clear
             room.display_room
+            room.display_features
+            room.display_availability
 
             # Return to main menu or quit
             any_key
 
+        # View hotel contact information
         when 4
-            # View hotel contact information
             clear
-            hotel.contact
+            hotel.contact_info
 
             # Return to main menu or quit
             any_key
-            
+
+        # Quit
         when 5
-            # quit
             if cat.booking
                 puts "Thank you #{cat_name}!"
-                puts "We look forward to welcoming you on #{booking.days[0]}"  # check this
+                puts "We look forward to welcoming you on #{cat.booking.days[0]}"  # check this
                 currently_using = false
             else 
                 puts "Thank you #{cat_name}"

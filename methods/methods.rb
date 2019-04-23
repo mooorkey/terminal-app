@@ -1,3 +1,6 @@
+HEADER_LINE = "--------------------------------------------------------------"
+HEADER_LENGTH = HEADER_LINE.length
+
 def clear
     puts "\e[2J\e[f"
 end
