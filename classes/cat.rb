@@ -1,12 +1,14 @@
 class Cat
-    def initialize(name, age)
+    attr_writer :booking
+
+    def initialize(name)
         @name = name
-        @age = age
+        # @age = age
         @booking = nil
     end
 end
 
 # Testing
 
-cat = Cat.new("Smokey", 4)
-p cat
+# cat = Cat.new("Smokey", 4)
+# p cat

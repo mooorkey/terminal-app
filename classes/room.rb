@@ -16,30 +16,11 @@ class Room
         puts "Price: $#{@price}"
         puts "Availibilty:"
         @availability.each { |day, status| puts "    - #{day}: #{status}" }
-
-        room_selection
     end
 
-    def room_selection
-        puts
-        puts "Would you like to (b)ook this room or (v)iew another room type?"
-        choice = gets.chomp.downcase
-        if choice == "b" or choice == "book"
-            select_days
-        elsif choice == "v" or choice == "view"
-            hotel.choose_room
-        else
-            puts "something went wrong"
-            display_room
-        end
-    end
-
-    # 1. Getting the available days
-    # 2. Displaying a menu of the available days
-    # 3. User selects the days and adds it to the booking
     def select_days
         days_menu = [ ]
-        booking_days = []                 
+        days_selected = []
         menu = TTY::Prompt.new
 
         # this gets the availability hash and formats it into the proper formatting 
@@ -56,7 +37,9 @@ class Room
         # User selects the days they want for their booking, and it changes the days to Booked
         menu.multi_select("Please select your days to book in:", days_menu, cycle: true, marker: '>', echo: false, per_page: 7).each do |day|
             @availability[day.to_sym] = "Booked"
+            days_selected.push(day)
         end
+        return days_selected
     end
 
     # def select_days
@@ -91,7 +74,7 @@ end
 
 # luxury = Luxury.new
 # p luxury.select_days
-# p luxury
+
 
 
 
