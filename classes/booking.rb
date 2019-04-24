@@ -4,9 +4,10 @@ require_relative '../methods/pretty'
 class Booking
     attr_reader :days
 
-    def initialize(room, days)
+    def initialize(room, days, activities=nil)
         @room = room      # room object
         @days = days     # an array of the days associated with the booking
+        @activities = activities 
     end
 
     # displays the booking

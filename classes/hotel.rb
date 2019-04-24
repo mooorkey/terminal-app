@@ -1,5 +1,4 @@
 require 'tty-prompt'
-require_relative 'room'
 require_relative '../methods/pretty'
 
 class Hotel
@@ -13,7 +12,8 @@ class Hotel
         @phone = "1800 MEOW MEOW"
         @email = "say_meow@purrseasons.com"
         @rooms = []  # Array of room objects
-        @about = "~ An Experience Your Cat Wont Forget ~ \n The Purr Seasons is a luxury cat hotel. \n It's so good you'll wish you could stay too!"
+        @activities = [] #Array of activity objects
+        @about = "~ An Experience Your Cat Wont Forget ~ \n The Purr Seasons is a luxury cat hotel. \n It's so good you'll wish you could stay too! \n\n All our rooms are heated to the purr-fect temperature,\n are fitted with cosy furnishings,\n include lots of cuddle time (if your cat likes that!),\n and are designed to make your cat feel at home. "
     end
 
     # Displays the contact information for the hotel
@@ -34,8 +34,14 @@ class Hotel
         @rooms << room
         return self
     end
+
+    # adds an activity to be available at the hotel (future enhancement - when there are multiple hotels, they may have different activities available)
+    def add_activity(activity)
+        @activities << activity
+        return self
+    end
     
-    # menu to choose a room in the hotel to display further information
+    # menu to choose a room in the hotel
     def select_room
 
         # These two lines create an array for the menu to display the room names
@@ -43,8 +49,32 @@ class Hotel
         @rooms.each { |room| menu.push(room.type)} 
 
         # this displays the menu using the TTY-Prompt gem. It returns the selected room
-        selection = TTY::Prompt.new.select("Choose a room type", menu, cycle: true, marker: '>', echo: false,)
+        selection = TTY::Prompt.new.select("Choose a room type:", menu, cycle: true, marker: '>', echo: false)
             @rooms.each { |room| return room if room.type == selection }
+    end
+
+    # create menu for TTY-Prompt 
+    def create_activity_menu
+        # Create an array for the menu to display the activity names
+        menu = []
+        @activities.each { |activity| menu.push(activity.name)}
+        return menu
+    end
+
+    # menu to select an activity
+    def select_activity_single(menu)
+        selection = TTY::Prompt.new.select("Choose an activity:", menu, cycle: true, marker: '>', echo: false)
+            @activities.each { |activity| return activity if activity.name == selection }
+    
+    end
+
+    # menu to select multipile activites
+    def select_activity_multiple(menu)
+        activities_selected = []
+        TTY::Prompt.new.multi_select("Please select your actiities to book in:", menu, cycle: true, marker: '>', echo: false, per_page: 5).each do |activity|
+            activities_selected.push[activity]
+            return activities_selected
+        end
     end
 
 end
@@ -52,8 +82,10 @@ end
 # TESTING
 
 # hotel = Hotel.new
-# hotel.add_room(Deluxe.new).add_room(Luxury.new)
+# hotel.add_room(Deluxe.new).add_room(Luxury.new).add_activity(Spa.new).add_activity(Cafe.new).add_activity(Catertainment.new)
+# p hotel.activities
 # p hotel.select_room
+# p hotel.select_activity
 
 
 

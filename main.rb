@@ -14,11 +14,12 @@ require 'tty-prompt'
 require_relative './classes/hotel'
 require_relative './classes/room'
 require_relative './classes/cat'
+require_relative './classes/activity'
 require_relative './classes/booking'
 require_relative './methods/pretty'
 
 # Create a hotel and rooms
-hotel = Hotel.new.add_room(Deluxe.new).add_room(Luxury.new).add_room(Grey.new)
+hotel = Hotel.new.add_room(Deluxe.new).add_room(Luxury.new).add_room(Grey.new).add_activity(Spa.new).add_activity(Catertainment.new).add_activity(Cafe.new)
 
 # Welcome message
 clear
@@ -51,8 +52,9 @@ while true
         menu.choice('Make a new booking', 1)
         menu.choice('View an existing booking', 2)
         menu.choice('View hotel rooms', 3)
-        menu.choice('View hotel contact information', 4)
-        menu.choice('Exit', 5)
+        menu.choice('View activites', 4)
+        menu.choice('View hotel contact information', 5)
+        menu.choice('Exit', 6)
 
         case selection
 
@@ -116,19 +118,28 @@ while true
             room.display_features
             room.display_availability
 
-            # Return to main menu or quit
+            # Return to main menu
+            any_key
+
+        # View Activities
+        when 4
+            clear
+
+            menu = hotel.create_activity_menu
+            selection = hotel.select_activity_single(menu)
+            selection.display_activity(selection)
             any_key
 
         # View hotel contact information
-        when 4
+        when 5
             clear
             hotel.contact_info
 
-            # Return to main menu or quit
+            # Return to main menu 
             any_key
 
         # Quit
-        when 5
+        when 6
             if cat.booking
                 clear
                 puts "Thank you #{cat_name}!"
