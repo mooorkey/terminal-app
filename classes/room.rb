@@ -1,12 +1,14 @@
 require 'tty-prompt'
 
 # The Room class holds the features, price and availability of each room type. Room types are defined as sub classes. 
+# This class' methods relate displaying various room information, and changing the room's availability, for instance. 
 class Room
     attr_reader :type, :features, :price, :availability
 
     def initialize(type, features, price, availability)
-        @type = type
-        @features = features                # array of features - we could use this in a future enhancement to be able to search by feature. Also makes styling it easy with an each loop for display purposes (and this data is mainly to display to the user). 
+        @type = type                        # room type name, a string
+        @features = features                # array of features - we could use this in a future enhancement to be able to search by feature.
+                                            # Also makes styling it easy with an each loop for display purposes (and this data is mainly to display to the user). 
         @price = '%.2f' % price
         @availability = availability        # hash of availability. i.e. Monday: "Available" - This is easy to see what day has what kind of availibily. 
     end
@@ -45,8 +47,9 @@ class Room
     # takes the room's availability and formats it for the TTY-Prompt gem - so that we can have a pretty options menu
     def select_days_menu(days_menu)
         @availability.each do |day, status|
-            if status != "Available"                                           
+            if status != "Available"                                          
                 days_menu.push({name: day.to_s, disabled: "Booked Out"})    # if day is not available, formats the day in this way
+                                                                            # the key/symbol day is converted to a string
             else                                                                
                 days_menu.push(name: day.to_s)                              # if the day is available, just sends the day
             end
@@ -56,12 +59,14 @@ class Room
     # user selects the days they would like for their booking, based on the room's availability
     def select_days_selection(days_selected, days_menu)
         TTY::Prompt.new.multi_select("Please select your days to book in:", days_menu, cycle: true, marker: '>', echo: false, per_page: 7).each do |day|
-            @availability[day.to_sym] = "Booked Out"
+            @availability[day.to_sym] = "Booked Out"                        # the string is converted back to a symbol, and availability is changed
             days_selected.push(day)
         end
     end
 end
 
+# Room subclasses - created so that we hard code the data in, less chance of data being incorrect, 
+# and the data is all in one place if multiple of the same room type is created
 class Deluxe < Room
     def initialize
         super("Deluxe", ["Two story scratching post", "Plush bedding", "Self-filling bubbling water", "Wide range of jingly toys", "All meals included"], 300, {Monday: "Available", Tuesday: "Available", Wednesday: "Available", Thursday: "Available", Friday: "Available", Saturday: "Available", Sunday: "Available"})
@@ -79,18 +84,3 @@ class Grey < Room
         super("Grey Nomad", ["Perfect for older cats", "Ground level scratching post", "Plush bedding", "Quiet position", "Special diet for mature tastes"], 270, {Monday: "Available", Tuesday: "Available", Wednesday: "Booked Out", Thursday: "Booked Out", Friday: "Available", Saturday: "Available", Sunday: "Available"})
     end
 end
-
-# TEST
-
-# single = Room.new("single", "feature here", 200, "everyday")
-# p single
-
-# deluxe = Deluxe.new
-# p deluxe
-
-# luxury = Luxury.new
-# p luxury.select_days
-
-
-
-
