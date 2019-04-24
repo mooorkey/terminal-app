@@ -33,9 +33,13 @@ puts "Please enter your cat's name right meow: \n\n"
 cat_name_count = 0
 while cat_name_count < 3
     cat_name = gets.chomp.capitalize
+
+    # exits the loop if the user types in a name
     if cat_name != "" 
         clear
         break
+
+    # continues the loop until the user types in a name, or until the cat_name_count is greater than three. 
     else
         cat_name_count += 1
         if cat_name_count == 3
@@ -55,7 +59,7 @@ puts "\n\n Meow #{cat.name}!"
 # Main Application Loop - menu options
 while true
     
-    # Display hotel menu options
+    # Display hotel menu options using TTY-Prompt gem
     welcome(hotel)
     selection = TTY::Prompt.new.select("How may we assist you today? Please select from the following options:",  cycle: true, marker: '>', echo: false) do |menu|
         menu.choice('Make a new booking', 1)
@@ -68,10 +72,14 @@ while true
 
         # 1. Make a new booking
         when 1
+
+            # A booking has already been created
             if cat.booking
                 clear
                 welcome(hotel)
                 puts "\n\n\n You already have a booking! \n\n\n"
+
+            # If there is no booking, creates a booking
             else
                 # Display list of room types and select a room
                 new_booking_header

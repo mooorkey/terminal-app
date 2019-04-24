@@ -123,28 +123,29 @@ It is recommended to use a font that supports unicode for this gem to look extra
 
 #### Corner Cases - Some Examples
 
-- If the cat name is accidently not given, we implemented a loop so that the user has the opportunity to write in the cat's name. If the user does not enter anything after three tries, it creates a cat object named "The Cat Without A Name." In future extensions we could implement the program so that a cat is created only when making a booking, or have the input of only being accepted with certain characters in a certain format with regex. 
+- If the cat name is accidently not given, we implemented a loop so that the user has the opportunity to write in the cat's name. If the user does not enter anything after three tries, it creates a cat object named "The Cat Without A Name." In future extensions we could implement the program so that a cat is created only when making a booking, or have the input of only being accepted with certain characters in a certain format with regex.
 
 - We avoided many corner cases by having our navigation through the TTY-Prompt. One challenge using this gem was to format our data for the prompt, and also getting the correct data we want back from the menu (such as changing a string to a symbol, to update our availability hash). However, using this meant that we could avoid a user inputting an invalid option.
 
-- There was the possibility of the user selecting "view booking" if a booking hadn't been booked in yet. We set the status of a booking to nil inside the cat class when it is initialized so that we could create an if statement around if there was a booking or not. This way, if the user tries to view a booking that doesn't exist, they will see a friendly error message. 
+- There was the possibility of the user selecting "view booking" if a booking hadn't been booked in yet. We set the status of a booking to nil inside the cat class when it is initialized so that we could create an if statement around if there was a booking or not. This way, if the user tries to view a booking that doesn't exist, they will see a friendly error message.
 
 #### Future Extensions
 
-The code has been designed to be modular and DRY as possible, with thought toward how the app could be modified in the future. 
+The code has been designed to be modular and DRY as possible, with thought toward how the app could be modified in the future.
 
 Some possible future implementations include:
 
-* Currently the app does not save the booking in any way. We would implement saving the booking and also sending a copy of the booking to the user's email.
-* A user will be able to log in with a password, store all their bookings and see past bookings.
-* The user will be able to pay for the booking using a credit card. 
-* Allow the user to booking into more than just one week but any date for any amount of time. 
-* Allow the app to accept multiple cats, and multiple bookings.
-* Get the cat's age and recommend certain rooms or activities based on their age. 
-* Allow the user to enter information regarding special considerations for their cat, for example if their cat has any behavioural, medical or dietary concerns.
-* Style the colours of the app using the gem [pastel](https://github.com/piotrmurach/pastel)
+- Be able to book the cats into activities while on their stay.
+- Currently the app does not save the booking in any way. We would implement saving the booking and also sending a copy of the booking to the user's email.
+- A user will be able to log in with a password, store all their bookings and see past bookings.
+- The user will be able to pay for the booking using a credit card.
+- Allow the user to booking into more than just one week but any date for any amount of time.
+- Allow the app to accept multiple cats, and multiple bookings, and be able to implement multiple hotels (such as hotels in different locations).
+- Get the cat's age and recommend certain rooms or activities based on their age.
+- Allow the user to enter information regarding special considerations for their cat, for example if their cat has any behavioural, medical or dietary concerns.
+- Style the colours of the app using the gem [pastel](https://github.com/piotrmurach/pastel)
 
-We tried to implement a future extension - adding activities to the order. Code for this can be viewed in the folder `./activities` - this is just a copy of where the app was at when the extension was abandoned. This would have used an activity class and added the activities to the booking in a similar way to the rooms being added. We just ran out of time to implement it the way we would have liked. 
+We tried to implement a future extension - adding activities to the order. Code for this can be viewed in the folder `./activities` - this is just a copy of where the app was at when the extension was abandoned. This would have used an activity class and added the activities to the booking in a similar way to the rooms being added. We just ran out of time to implement it the way we would have liked.
 
 ![extension - activities](./docs/2019-04-24-activities.jpg)
 
