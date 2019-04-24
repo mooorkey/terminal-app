@@ -87,8 +87,7 @@ while true
                     # Create a new booking with room type and booking days
                     cat.booking = Booking.new(room, booking_days)
 
-                else option == "Yes"
-
+                else
                     # Add activities to the booking
                     activity_selection_header
                     activity_menu = hotel.create_activity_menu
@@ -102,8 +101,6 @@ while true
                 clear
                 puts "Thank you for your booking!"
                 cat.booking.display_booking(cat, hotel)
-
-                # Option to return to main menu or quit
                 any_key
             end
 
@@ -114,8 +111,6 @@ while true
                 # View an existing booking
                 clear
                 cat.booking.display_booking(cat, hotel)
-
-                # Return to main menu or quit
                 any_key
             else
                 clear
@@ -132,8 +127,6 @@ while true
             room.display_room
             room.display_features
             room.display_availability
-
-            # Return to main menu
             any_key
 
         # View Activities
@@ -150,7 +143,6 @@ while true
         when 5
             clear
             hotel.hotel_info
-
             # Return to main menu 
             any_key
 
