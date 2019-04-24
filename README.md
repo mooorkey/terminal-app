@@ -53,6 +53,7 @@ Exit ...
 `ruby main.rb`
 
 ## Design & Planning process
+
 When planning this application, we brainstormed a couple of ideas. We decided to settle on the Cat Hotel Booking System as we felt that we could be creative with it. 
 
 ### Evidence of app idea brainstorming sessions
@@ -61,11 +62,18 @@ When planning this application, we brainstormed a couple of ideas. We decided to
 
 Link to our testing spreadsheet - 
 
+Challenges
+
 Talk about github and trello
 
 ### Project plan & timeline
 
-- Screenshots of Trello board(s), Slack, 
+#### Trello Examples
+Day 1 
+![trello day 1](./docs/2019-04-23-Trello.jpg "Trello Day 1")
+
+Day 2
+![trello day 2](./docs/2019-04-24-Trello01.jpg "Trello Day 2")
 
 ### Code Structure
 
@@ -84,11 +92,9 @@ Talk about github and trello
 - `methods/headers.rb` is a file that holds some methods to make the main flow of the program look pretty. 
 
 
+#### Gem 💎 TTY-Prompt
 
-
-####  Gem 💎 TTY-Prompt
-
-We chose to use the TTY-Prompt gem, as this cuts out user error when accessing the menus. The user can not input incorrect information, but instead selects from a list. 
+We chose to use the TTY-Prompt gem, as this cuts out user error when accessing the menus. The user can not input incorrect information, but instead selects from a list.
 
 One difficulty with using this gem is we had to change our data (such as a room's availability that is stored in a hash) to a format that the menu recognizes.  We believe that it is worth this extra step in the code, as we do not have to worry about incorrect user input, it makes navigating the application easier, and also because the menu is formatted nicely.
 
@@ -96,7 +102,7 @@ It is recommended to use a font that supports unicode for this gem to look extra
 
 #### Corner Cases
 
-Some of the corner cases we encountered include: 
+Some of the corner cases we encountered include:
 
 - If the cat name is accidently not given, we implimented a loop so that the user has the opportunity to write in the cat's name. 
 
@@ -104,7 +110,7 @@ Some of the corner cases we encountered include:
 
 The code has been designed to be modular and DRY as possible, with thought toward how the app could be modified in the future. 
 
-Some possible future implementations include: 
+Some possible future implementations include:
 
 * Currently the app does not save the booking in any way. We would implement saving the booking and also sending a copy of the booking to the user's email.
 * A user will be able to log in with a password, store all their bookings and see past bookings.
