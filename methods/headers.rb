@@ -18,6 +18,21 @@ def back_main_menu
     clear
 end
 
+def loading_screen(string)                                           
+    string.length.times do |i| # Iterates over each index in a given string
+        # Clear the screen to provide an animated effect.
+        clear
+        
+        puts HEADER_LINE
+        puts "Please Wait...".upcase.center(HEADER_LENGTH)
+        puts HEADER_LINE
+        puts
+        # Displays all characters in the string up to the index being iterated over.
+        puts string[0, i].center(HEADER_LENGTH)
+        sleep(0.2)
+    end
+end
+
 # Welcome to the app & hotel
 def welcome(hotel)
     puts

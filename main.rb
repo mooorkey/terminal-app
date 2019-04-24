@@ -65,7 +65,7 @@ while true
         menu.choice('Make a new booking', 1)
         menu.choice('View an existing booking', 2)
         menu.choice('View hotel rooms', 3)
-        menu.choice('View hotel contact information', 4)
+        menu.choice('View hotel information', 4)
         menu.choice('Exit', 5)
 
         case selection
@@ -94,6 +94,10 @@ while true
 
                 # creates the booking
                 cat.booking = Booking.new(room, booking_days)
+
+                # loading screen
+                loading_screen("Loading your booking right meow......")
+
 
                 # Displays the booking for user including price
                 clear

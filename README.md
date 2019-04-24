@@ -4,25 +4,23 @@
 
 by Carlie Hamilton and Natalie Sargent
 
-## Link to Github
-
 Link to the repository - [https://github.com/natkat9/terminal-app](https://github.com/natkat9/terminal-app "Our Github Repository")
 
 ## About the App
 
-### Description & Purpose
+### Description
 
-This app is a MVP of a Cat Hotel Booking System for the Purr Seasons Cat Hotel. The app allows a user to book a hotel stay and extra activities for their cat, in a 7 day period.
+This app is a MVP of a Cat Hotel Booking System for the Purr Seasons Cat Hotel. The app allows a user to book a hotel stay for their cat, in a 7 day period.
 
-The user can create a booking for their cat by choosing a room type and the days that they would like to book their cat in. They can also choose extra activities to book their cat into. 
+The user can create a booking for their cat by choosing a room type and the days that they would like to book their cat in.
 
-The user is able to look at the different room types and activities, and see additional information for each. They are also able to see the details of the hotel, such as the contact information and a little bit about the hotel. 
+The user is able to look at the different room types and see additional information for each. They are also able to see the details of the hotel, such as the contact information and a little bit about the hotel.
 
-Once the user has created a booking they are able to see the booking that they created, including the total price of the room and activities they selected. 
+Once the user has created a booking they are able to see the booking that they created, including the total price of the room they selected.
 
 ### Functionality
 
-On commencing the application, the user is prompted to enter their cat's name and from there they are presented with a menu prompt where they can select to make a new booking, view an existing booking, view room types, view activities, view information about the hotel, or to exit the app.
+On commencing the application, the user is prompted to enter their cat's name. From there they are presented with a menu prompt where they can select to make a new booking, view an existing booking, view room types, view information about the hotel, or to exit the app.
 
 When making a new booking the user is given the option to select one of 3 room types.  They are then prompted to select what days they would like to stay, from the available days.  The booking is created and displayed for the user.  The user is then prompted to press any key to return to the main menu.
 
@@ -39,7 +37,7 @@ Exit ...
 ### Instructions for Installation and Use
 
 1. You will need ruby installed on your computer. [Download ruby here](https://www.ruby-lang.org/en/).
-2. You will also need the Bundler gem installed. It comes with the main ruby installation, but if you do not have it on your machine, you can install it with the following command: 
+2. You will also need the Bundler gem installed. It comes with the main ruby installation, but if you do not have it on your machine, you can install it with the following command:
 
 `gem install bundler`
 
@@ -54,7 +52,7 @@ Exit ...
 
 ## Design & Planning process
 
-When planning this application, we brainstormed a couple of ideas. We decided to settle on the Cat Hotel Booking System as we felt that we could be creative with it. 
+When planning this application, we brainstormed a couple of ideas. We decided to settle on the Cat Hotel Booking System as we felt that we could be creative with it.
 
 ### Initial Flow Chart
 
@@ -92,8 +90,11 @@ We used Trello to organise what we needed to do. We had user stories to drive wh
 
 Below are some examples of our Trello board at various points in our development.
 
-Day 1 
+Day 1
+Includes user stories:
 ![trello day 1](./docs/2019-04-23-Trello.jpg "Trello Day 1")
+
+![trello end day 1](./docs/2019-04-23-End-Day-Trello.jpg "End Day 1 Trello")
 
 Day 2
 ![trello day 2](./docs/2019-04-24-Trello01.jpg "Trello Day 2")
