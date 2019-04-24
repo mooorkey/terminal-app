@@ -1,3 +1,5 @@
+# This hasn't been implimented
+
 class Activity
     attr_reader :name, :price
 

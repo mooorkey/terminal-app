@@ -102,13 +102,13 @@ Day 2
 
 - `main.rb` is the main document that controls the flow of the program.
 
-- `classes/hotel.rb` holds the Hotel class. This class holds the information of the hotel, such as the address and phone number. It also holds a list of the rooms in the hotel, and the activities associated with the hotel. It is used for methods that show the rooms and activities all together. 
+- `classes/hotel.rb` holds the Hotel class and represents the hotel. This class holds the information of the hotel, such as the address and phone number. It also holds a list of the rooms in the hotel, and the activities associated with the hotel. It is used for methods that show the rooms and activities all together. 
 
-- `classes/room.rb` holds the Room super class, as well as it's sub classes (which are different types of rooms). This class deals with methods that pertain to a room, such as showing the availability of a room.
+- `classes/room.rb` holds the Room super class, as well as it's sub classes (which represents different types of rooms). This class deals with methods that pertain to a room, such as showing the availability of a room.
 
-- `classes/cat.rb` holds the cat class. The cat class has the details of the cat as well as a booking that is associated with the cat when it (the booking) is created. The booking is initialized with the cat as "nil" - this is used during the main flow of the program, as different menus show different things depending on if there is a booking or not. 
+- `classes/cat.rb` holds the cat class. The cat class represents the user, and holds the details of the cat as well as a booking that is associated with the cat when it (the booking) is created. The booking is initialized with the cat as "nil" - this is used during the main flow of the program, as different menus show different things depending on if there is a booking or not. 
 
-- `classes/booking.rb` is initialized once the user has selected a room and days. Activities can been added to the booking optionally. It displays the booking and it also calculates the total price of the booking. 
+- `classes/booking.rb` is initialized once the user has selected a room and days. It represents the booking. Activities can been added to the booking optionally. It displays the booking and it also calculates the total price of the booking. 
 
 - `classes/activity.rb` is similar to the room class, but instead holds different activities that can optionally be added to the booking. The individual activities are sub classes to the main activity super class. 
 

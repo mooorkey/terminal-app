@@ -32,14 +32,22 @@ puts
 puts "What is your cat's name please?"
 puts
 
-# Creating a cat - loop to make sure the user types in something
-while true
+# Creating a cat - loop to make sure the user types in something. This exits out of the loop if the user does not type anything in after 3 tries. In the future we could use some regex to make sure the user formats a cat name to some standard, such as starting with a letter. 
+cat_name_count = 0
+while cat_name_count < 3
     cat_name = gets.chomp.capitalize
     if cat_name != "" 
         clear
         break
     else
-        puts "Ooops, please enter your cat's name:"
+        cat_name_count += 1
+        if cat_name_count == 3
+            clear
+            puts "You must have a shy cat!"
+            cat_name = "The Cat Without A Name"
+        else
+            puts "Ooops, please enter your cat's name:"
+        end
     end
 end
 cat = Cat.new(cat_name)
