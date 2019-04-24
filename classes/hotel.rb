@@ -17,16 +17,20 @@ class Hotel
     end
 
     # Displays the contact information for the hotel
-    def contact_info
+    def hotel_info
         puts HEADER_LINE
         puts "#{@name.upcase}".center(HEADER_LENGTH)
         puts HEADER_LINE
-        puts " Address: #{@address}"
-        puts " Phone No: #{@phone}"
-        puts " Email: #{@email}"
+        contact_info
         puts
         puts "   #{@about}"
         puts HEADER_LINE
+    end
+
+    def contact_info
+        puts " Address: #{@address}"
+        puts " Phone No: #{@phone}"
+        puts " Email: #{@email}"
     end
 
     # adds a room to the hotel - pushes the room to the rooms array
@@ -72,7 +76,9 @@ class Hotel
     def select_activity_multiple(menu)
         activities_selected = []
         TTY::Prompt.new.multi_select("Please select your actiities to book in:", menu, cycle: true, marker: '>', echo: false, per_page: 5).each do |activity|
-            activities_selected.push(activity)
+            
+            # pushing a activity object to the activities_selected array
+            @activities.each { |activity_object| activities_selected.push(activity_object) if activity == activity_object.name}
             return activities_selected
         end
     end

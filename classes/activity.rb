@@ -1,5 +1,5 @@
 class Activity
-    attr_reader :name
+    attr_reader :name, :price
 
     def initialize(name, details, price)
         @name = name

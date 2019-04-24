@@ -89,6 +89,7 @@ while true
                     activity_selection_header
                     activity_menu = hotel.create_activity_menu
                     selected_activities = hotel.select_activity_multiple(activity_menu)
+                    p selected_activities
                     cat.booking = Booking.new(room, booking_days, selected_activities)
                     p cat.booking
                 end
@@ -96,7 +97,7 @@ while true
                 # Display booking for user including price
                 clear
                 puts "Thank you for your booking!"
-                cat.booking.display_booking(cat)
+                cat.booking.display_booking(cat, hotel)
 
                 # Option to return to main menu or quit
                 any_key
@@ -108,7 +109,7 @@ while true
             if cat.booking
                 # View an existing booking
                 clear
-                cat.booking.display_booking(cat)
+                cat.booking.display_booking(cat, hotel)
 
                 # Return to main menu or quit
                 any_key
@@ -144,7 +145,7 @@ while true
         # View hotel contact information
         when 5
             clear
-            hotel.contact_info
+            hotel.hotel_info
 
             # Return to main menu 
             any_key
