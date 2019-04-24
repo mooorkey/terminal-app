@@ -1,11 +1,12 @@
 require_relative '../methods/headers'
 
+# This class represents the booking object
 class Booking
     attr_reader :days
 
     def initialize(room, days)
         @room = room      # room object
-        @days = days     # an array of the days (strings) associated with the booking. 
+        @days = days      # an array of the days (strings) associated with the booking. 
     end
 
     # displays the booking

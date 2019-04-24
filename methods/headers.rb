@@ -1,4 +1,4 @@
-# Beautiful headers for our main app
+# Some beautiful headers and useful functions for our main app
 
 require 'tty-prompt'
 
@@ -17,8 +17,6 @@ def back_main_menu
     $stdin.getch
     clear
 end
-
-# SOME PRETTY HEADERS FOR OUR MAIN APP
 
 # Welcome to the app & hotel
 def welcome(hotel)
@@ -52,25 +50,4 @@ def room_name_header(room_name)
     puts HEADER_LINE
     puts "#{room_name} Room".upcase.center(HEADER_LENGTH)
     puts HEADER_LINE
-end
-
-# header for selecting activities to view
-def activity_selection_header
-    clear
-    puts HEADER_LINE
-    puts "Select an activity".upcase.center(HEADER_LENGTH)
-    puts HEADER_LINE
-end
-
-# header for when viewing activities
-def activity_header(activity_name)
-    clear
-    puts HEADER_LINE
-    puts "Activity: #{activity_name}".upcase.center(HEADER_LENGTH)
-    puts HEADER_LINE
-end
-
-def question_activity
-    clear
-    selection = TTY::Prompt.new.select("Would you like to add an activity to your booking?", ["Yes", "No"], cycle: true, marker: '>', echo: false)
 end
