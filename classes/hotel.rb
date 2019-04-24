@@ -1,5 +1,5 @@
 require 'tty-prompt'
-require_relative '../methods/pretty'
+require_relative '../methods/headers'
 
 class Hotel
     attr_reader :rooms, :name

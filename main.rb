@@ -16,7 +16,7 @@ require_relative './classes/room'
 require_relative './classes/cat'
 require_relative './classes/activity'
 require_relative './classes/booking'
-require_relative './methods/pretty'
+require_relative './methods/headers'
 
 # Create a hotel and rooms
 hotel = Hotel.new.add_room(Deluxe.new).add_room(Luxury.new).add_room(Grey.new).add_activity(Spa.new).add_activity(Catertainment.new).add_activity(Cafe.new)
