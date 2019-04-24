@@ -8,12 +8,12 @@ class Hotel
     # If in the future we were to expand to different locations, we could create sub Hotel classes, and hard-code the information in there. 
     def initialize
         @name = "Purr Seasons"
-        @address = "32 Cat St"
+        @address = "32 Cat St, Tabby Town"
         @phone = "1800 MEOW MEOW"
         @email = "say_meow@purrseasons.com"
         @rooms = []  # Array of room objects
         @activities = [] #Array of activity objects
-        @about = "~ An Experience Your Cat Wont Forget ~ \n The Purr Seasons is a luxury cat hotel. \n It's so good you'll wish you could stay too! \n\n All our rooms are heated to the purr-fect temperature,\n are fitted with cosy furnishings,\n include lots of cuddle time (if your cat likes that!),\n and are designed to make your cat feel at home. "
+        @about = "~ An Experience Your Cat Won\'t Forget ~ \n The Purr Seasons is a luxury cat hotel. \n It's so good you'll wish you could stay too! \n\n All our rooms are heated to the purr-fect temperature,\n are fitted with cosy furnishings,\n include lots of cuddle time (if your cat likes that!),\n and are designed to make your cat feel at home. "
     end
 
     # Displays the contact information for the hotel

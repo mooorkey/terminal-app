@@ -28,7 +28,9 @@ welcome(hotel)
 # Enter Cat guest details
 puts
 puts "Hello Human!"
-puts "What is your cat's name?"
+puts
+puts "What is your cat's name please?"
+puts
 
 # Creating a cat - loop to make sure the user types in something
 while true
@@ -41,14 +43,16 @@ while true
     end
 end
 cat = Cat.new(cat_name)
+puts
 puts "Meow #{cat.name}!"
+puts
 
 # Main Application Loop
 while true
     
     # Display hotel menu options
     welcome(hotel)
-    selection = TTY::Prompt.new.select("How can we assist you today? Please select from the following options:",  cycle: true, marker: '>', echo: false) do |menu|
+    selection = TTY::Prompt.new.select("How may we assist you today? Please select from the following options:",  cycle: true, marker: '>', echo: false) do |menu|
         menu.choice('Make a new booking', 1)
         menu.choice('View an existing booking', 2)
         menu.choice('View hotel rooms', 3)
@@ -155,12 +159,14 @@ while true
             if cat.booking
                 clear
                 puts "Thank you #{cat_name}!"
-                puts "We look forward to welcoming you on #{cat.booking.days[0]}"  # check this
+                puts "We look forward to welcoming you at the Purr Seasons on #{cat.booking.days[0]}."  # check this
+                puts "Have a purr-fect day!"
                 return
             else 
                 clear
                 puts "Thank you #{cat_name}"
-                puts "We hope to see you soon"
+                puts "We hope you will visit us soon!"
+                puts "Have a purr-fect day"
                 return
             end
         end

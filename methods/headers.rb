@@ -20,10 +20,12 @@ end
 
 # Welcome to the app & hotel
 def welcome(hotel)
+    puts
     puts HEADER_LINE
     puts "WELCOME TO THE".center(HEADER_LENGTH)
-    puts "#{hotel.name} Hotel!".center(HEADER_LENGTH)
+    puts "#{hotel.name} Cat Hotel!".center(HEADER_LENGTH)
     puts HEADER_LINE
+    puts
 end
 
 # header for when placing a new booking
