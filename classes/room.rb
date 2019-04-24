@@ -74,7 +74,7 @@ end
 
 class Grey < Room
     def initialize
-        super("Grey Nomad", ["Perfect for older cats", "Ground level scratching post", "Plush bedding", "Quiet position", "Special Dietry Food included"], 270, {Monday: "Available", Tuesday: "Available", Wednesday: "Booked Out", Thursday: "Booked Out", Friday: "Available", Saturday: "Available", Sunday: "Available"})
+        super("Grey Nomad", ["Perfect for older cats", "Ground level scratching post", "Plush bedding", "Quiet position", "Special diet for mature tastes"], 270, {Monday: "Available", Tuesday: "Available", Wednesday: "Booked Out", Thursday: "Booked Out", Friday: "Available", Saturday: "Available", Sunday: "Available"})
     end
 end
 
