@@ -95,7 +95,9 @@ while true
                     activity_menu = hotel.create_activity_menu
                     selected_activities = hotel.select_activity_multiple(activity_menu)
                     p selected_activities
-                    cat.booking = Booking.new(room, booking_days, selected_activities)
+                    activity_objects = activity_object_list(selected_activities)
+                    p activity_objects
+                    cat.booking = Booking.new(room, booking_days, activity_objects)
                     p cat.booking
                 end
 

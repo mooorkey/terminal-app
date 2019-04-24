@@ -72,16 +72,25 @@ class Hotel
     
     end
 
+    def activity_object_list(activities_selected)
+        activity_object_array = []
+        activities_selected.each do |activity|
+            @activities.each { |activity_object| activity_object_array.push(activity_object) if activity == activity_object.name}
+            return activity_object_array
+        end
+    end
+
     # menu to select multipile activites
     def select_activity_multiple(menu)
         activities_selected = []
         TTY::Prompt.new.multi_select("Please select your actiities to book in:", menu, cycle: true, marker: '>', echo: false, per_page: 5).each do |activity|
             
             # pushing a activity object to the activities_selected array
-            @activities.each { |activity_object| activities_selected.push(activity_object) if activity == activity_object.name}
-            return activities_selected
+            activities_selected.push(activity)
         end
     end
+
+
 
 end
 
