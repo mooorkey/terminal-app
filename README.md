@@ -10,7 +10,7 @@ Link to the repository - [https://github.com/natkat9/terminal-app](https://githu
 
 ### Description
 
-This app is a MVP of a Cat Hotel Booking System for the Purr Seasons Cat Hotel. The app allows a user to book a hotel stay for their cat, in a 7 day period.
+This app is a MVP of a Cat Hotel Booking System for the Purr Seasons Cat Hotel. The app allows a user to book a hotel stay for their cat, in a 7 day period. 
 
 The user can create a booking for their cat by choosing a room type and the days that they would like to book their cat in.
 
@@ -20,19 +20,25 @@ Once the user has created a booking they are able to see the booking that they c
 
 ### Functionality
 
+![Purr Seasons Welcome](./docs/welcome.jpg "Welcome to the Purr Seasons")
+
 On commencing the application, the user is prompted to enter their cat's name. From there they are presented with a menu prompt where they can select to make a new booking, view an existing booking, view room types, view information about the hotel, or to exit the app.
+
+![menu](./docs/menu.jpg "Main Menu")
 
 When making a new booking the user is given the option to select one of 3 room types.  They are then prompted to select what days they would like to stay, from the available days.  The booking is created and displayed for the user.  The user is then prompted to press any key to return to the main menu.
 
+![creating a booking](./docs/2019-04-24-app-example.jpg "Creating a booking")
+
 If the user has created a booking they can select to view an existing booking, and their booking will be displayed.  Otherwise, they are advised that they do not yet have a booking and they will be prompted to return to the main menu.
 
-View room types ...
+![room information](./docs/room.jpg "Room Information")
 
-View activities ...
+The user is able to see information about each room type, as well as details about the hotel. The room information page shows the availability of the room, which changes once a user has booked into the room.
 
-View hotel information ...
+![exit](./docs/exit.jpg "Exit Message")
 
-Exit ...
+The app will display a personalised message on exit, depending on if you have made a booking or not.
 
 ### Instructions for Installation and Use
 
@@ -52,19 +58,16 @@ Exit ...
 
 ## Design & Planning process
 
-When planning this application, we brainstormed a couple of ideas. We decided to settle on the Cat Hotel Booking System as we felt that we could be creative with it.
+When planning this application, we brainstormed a couple of ideas. We initially thought of a medication tracking app, but we felt that it was important to keep that app simple so that it would be accessible for it's target audience - and because of this we wouldn't have an opportunity to have some fun.
+
+![brainstorming](./docs/planning.jpg "Brainstorming")
+We decided to settle on the Cat Hotel Booking System as we felt that we could be creative with it.
 
 ### Initial Flow Chart
 
 This was our initial flow chart and structure ideas for app.
 
 ![flow chart](./docs/flow-chart.png)
-
-
-Link to our testing spreadsheet - 
-
-Challenges
-
 
 ### Project plan & timeline
 
@@ -76,7 +79,7 @@ We worked together with pair programming to create the basic structure of the ap
 
 In the morning we worked on finalising the functionality of the app as well as commenting, the look of the app, and cleaning up code. We implemented a stretch goal to include activities to book into.
 
-In the afternoon we worked on documentation for the app.
+In the afternoon we worked on documentation for the app. We ran out of time to complete the activities extension, so the extra code was archived. 
 
 #### Collaboration
 
@@ -98,6 +101,14 @@ Includes user stories:
 
 Day 2
 ![trello day 2](./docs/2019-04-24-Trello01.jpg "Trello Day 2")
+
+### Testing
+
+We tested our code at every stage of the process, and recorded our tests in a spreadsheet.
+
+![tests1](./docs/tests1.jpg "test spreadsheet")
+![tests2](./docs/tests2.jpg "test spreadsheet")
+![tests3](./docs/tests3.jpg "test spreadsheet")
 
 ### Code Structure
 
@@ -137,6 +148,7 @@ The code has been designed to be modular and DRY as possible, with thought towar
 Some possible future implementations include:
 
 - Be able to book the cats into activities while on their stay.
+- Display unicode "X" on the room information page when a day is booked out.
 - Currently the app does not save the booking in any way. We would implement saving the booking and also sending a copy of the booking to the user's email.
 - A user will be able to log in with a password, store all their bookings and see past bookings.
 - The user will be able to pay for the booking using a credit card.
@@ -146,7 +158,7 @@ Some possible future implementations include:
 - Allow the user to enter information regarding special considerations for their cat, for example if their cat has any behavioural, medical or dietary concerns.
 - Style the colours of the app using the gem [pastel](https://github.com/piotrmurach/pastel)
 
-We tried to implement a future extension - adding activities to the order. Code for this can be viewed in the folder `./activities` - this is just a copy of where the app was at when the extension was abandoned. This would have used an activity class and added the activities to the booking in a similar way to the rooms being added. We just ran out of time to implement it the way we would have liked.
+We tried to implement a future extension - adding activities to the order. Code for this can be viewed in the folder `./archive-activities` - this is just a copy of where the app was at when the extension was abandoned. This would have used an activity class and added the activities to the booking in a similar way to the rooms being added. We just ran out of time to implement it the way we would have liked.
 
 ![extension - activities](./docs/2019-04-24-activities.jpg)
 

@@ -92,6 +92,13 @@ while true
                 room.display_features
                 booking_days = room.select_days
 
+                # checks if user has selected days
+                while booking_days.length == 0
+                    new_booking_header
+                    puts "\n\n Ooops, no days were selected. \n\n\n"
+                    booking_days = room.select_days
+                end
+
                 # creates the booking
                 cat.booking = Booking.new(room, booking_days)
 
