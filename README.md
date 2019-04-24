@@ -56,7 +56,9 @@ Exit ...
 
 When planning this application, we brainstormed a couple of ideas. We decided to settle on the Cat Hotel Booking System as we felt that we could be creative with it. 
 
-### Evidence of app idea brainstorming sessions
+### Initial Flow Chart
+
+![flow chart](./docs/flow-chart.png)
 
 ### app User/Workflow diagram
 
