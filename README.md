@@ -2,7 +2,7 @@
 
 ## Ruby Terminal App
 
-by Natalie Sargent and Carlie Hamilton
+by Carlie Hamilton and Natalie Sargent
 
 ## Resources
 
