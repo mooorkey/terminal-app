@@ -61,6 +61,7 @@ The app will display a personalised message on exit, depending on if you have ma
 When planning this application, we brainstormed a couple of ideas. We initially thought of a medication tracking app, but we felt that it was important to keep that app simple so that it would be accessible for it's target audience - and because of this we wouldn't have an opportunity to have some fun.
 
 ![brainstorming](./docs/planning.jpg "Brainstorming")
+
 We decided to settle on the Cat Hotel Booking System as we felt that we could be creative with it.
 
 ### Initial Flow Chart
@@ -69,21 +70,21 @@ This was our initial flow chart and structure ideas for app.
 
 ![flow chart](./docs/flow-chart.png)
 
-### Project plan & timeline
+### Timeline
 
 #### Day 1
 
-We worked together with pair programming to create the basic structure of the app. We utilized a gem TTY-Prompt for the menus so that our user can easily select multiple items at once. As we went along we tested our app with each new feature. 
+We worked together with pair programming to create the basic structure of the app. We utilized a gem TTY-Prompt for the menus so that our user can easily select multiple items at once. As we went along we tested our app with each new feature.
 
 #### Day 2
 
 In the morning we worked on finalising the functionality of the app as well as commenting, the look of the app, and cleaning up code. We implemented a stretch goal to include activities to book into.
 
-In the afternoon we worked on documentation for the app. We ran out of time to complete the activities extension, so the extra code was archived. 
+In the afternoon we worked on documentation for the app. We ran out of time to complete the activities extension, so the extra code was archived.
 
 #### Collaboration
 
-We used VS Code Live Share to work together. We commited to git regularly to back up our code. We also had a slack channel to communicate together. 
+We used VS Code Live Share to work together. We commited to git regularly to back up our code. We also had a slack channel to communicate together.
 
 ![slack](./docs/2019-04-24-Slack.jpg "Slack")
 
@@ -135,7 +136,7 @@ It is recommended to use a font that supports unicode for this gem to look extra
 
 #### Corner Cases - Some Examples
 
-- If the cat name is accidently not given, we implemented a loop so that the user has the opportunity to write in the cat's name. If the user does not enter anything after three tries, it creates a cat object named "The Cat Without A Name." In future extensions we could implement the program so that a cat is created only when making a booking, or have the input of only being accepted with certain characters in a certain format with regex.
+- If the cat name is accidentally not given, we implemented a loop so that the user has the opportunity to write in the cat's name. If the user does not enter anything after three tries, it creates a cat object named "The Cat Without A Name." In future extensions we could implement the program so that a cat is created only when making a booking, or have the input of only being accepted with certain characters in a certain format with regex.
 
 - We avoided many corner cases by having our navigation through the TTY-Prompt. One challenge using this gem was to format our data for the prompt, and also getting the correct data we want back from the menu (such as changing a string to a symbol, to update our availability hash). However, using this meant that we could avoid a user inputting an invalid option.
 
@@ -162,19 +163,16 @@ We tried to implement a future extension - adding activities to the order. Code 
 
 ![extension - activities](./docs/2019-04-24-activities.jpg)
 
-
-
 ### Accessibility
 
 The app has clear instructions for screen readers, however to make the app more accessible to the vision impaired we could implement a text-to-speech gem in the future.  
 
-The TTY-Prompt gem has made the app more accessable for a command line interface, as the user doesn't have to type in their desired choice. This also makes it harder for the user to input an incorrect response that may bring up an error.  
+The TTY-Prompt gem has made the app more accessible for a command line interface, as the user doesn't have to type in their desired choice. This also makes it harder for the user to input an incorrect response that may bring up an error.  
 
 ### Potential Ethical, Legal and Broader Societal Implications
 
-In a future extensions we will have to consider the legal and ethical ramifications of storing user data and taking money online from the user. If this was a business they would also have to consider having a disclaimer that the user would agree to with the conditions of making a booking and using the app. 
+In a future extensions we will have to consider the legal and ethical ramifications of storing user data and taking money online from the user. If this was a business they would also have to consider having a disclaimer that the user would agree to with the conditions of making a booking and using the app.
 
 The hotel must consider the safety and wellbeing of their cat guests.  In a future extension, we would add the facility for user to record any special needs requests, for example if their cat has any medical, dietary or behavioural concerns that the hotel may need to accommodate.
 
-
-- Comprehensive discussion of possible social, political, cultural, racial, gender and international issues
+(Tongue in cheek:) Dogs may feel discriminated against for not being allowed in the Purr Seasons, but for the health and safety of our guests, this is a dog-free hotel.
