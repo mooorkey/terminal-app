@@ -7,7 +7,7 @@ class Booking
     def initialize(room, days, activities=nil)
         @room = room      # room object
         @days = days     # an array of the days associated with the booking
-        @activities = activities 
+        @activities = activities   # an array of activities  associated with the booking
     end
 
     # displays the booking

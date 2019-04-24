@@ -72,7 +72,7 @@ class Hotel
     def select_activity_multiple(menu)
         activities_selected = []
         TTY::Prompt.new.multi_select("Please select your actiities to book in:", menu, cycle: true, marker: '>', echo: false, per_page: 5).each do |activity|
-            activities_selected.push[activity]
+            activities_selected.push(activity)
             return activities_selected
         end
     end

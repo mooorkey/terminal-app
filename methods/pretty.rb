@@ -1,3 +1,5 @@
+require 'tty-prompt'
+
 # Line for the headers
 HEADER_LINE = "--------------------------------------------------------------"
 HEADER_LENGTH = HEADER_LINE.length
@@ -62,4 +64,9 @@ def activity_header(activity_name)
     puts HEADER_LINE
     puts "Activity: #{activity_name}".upcase.center(HEADER_LENGTH)
     puts HEADER_LINE
+end
+
+def question_activity
+    clear
+    selection = TTY::Prompt.new.select("Would you like to add an activity to your booking?", ["Yes", "No"], cycle: true, marker: '>', echo: false)
 end

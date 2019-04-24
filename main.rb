@@ -76,8 +76,22 @@ while true
                 puts
                 booking_days = room.select_days
 
-                # Create a new booking with room type and booking days
-                cat.booking = Booking.new(room, booking_days)
+                # Would the user like to add activities?
+                new_booking_header
+                option = question_activity
+                if option == "No"
+                    # Create a new booking with room type and booking days
+                    cat.booking = Booking.new(room, booking_days)
+
+                else option == "Yes"
+
+                    # Add activities to the booking
+                    activity_selection_header
+                    activity_menu = hotel.create_activity_menu
+                    selected_activities = hotel.select_activity_multiple(activity_menu)
+                    cat.booking = Booking.new(room, booking_days, selected_activities)
+                    p cat.booking
+                end
 
                 # Display booking for user including price
                 clear
