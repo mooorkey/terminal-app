@@ -67,7 +67,6 @@ Link to our testing spreadsheet -
 
 Challenges
 
-Talk about github and trello
 
 ### Project plan & timeline
 

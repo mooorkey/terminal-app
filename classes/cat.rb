@@ -1,3 +1,4 @@
+# This is the main user class. It will hold the user's details and their booking. In future enhancements we would be able to hold additional information such as contact details, as well as multiple bookings and display past bookings. 
 class Cat
     attr_accessor :booking, :name
 

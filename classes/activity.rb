@@ -3,7 +3,7 @@ class Activity
 
     def initialize(name, details, price)
         @name = name
-        @details = details              # String
+        @details = details              # String - information about the activity
         @price = '%.2f' % price
     end
 

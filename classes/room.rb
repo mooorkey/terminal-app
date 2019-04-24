@@ -1,13 +1,14 @@
 require 'tty-prompt'
 
+# The Room class holds the features, price and availability of each room type. Room types are defined as sub classes. 
 class Room
     attr_reader :type, :features, :price, :availability
 
     def initialize(type, features, price, availability)
         @type = type
-        @features = features                # array of features - we could use this in a future enhancement to be able to search by feature
+        @features = features                # array of features - we could use this in a future enhancement to be able to search by feature. Also makes styling it easy with an each loop for display purposes (and this data is mainly to display to the user). 
         @price = '%.2f' % price
-        @availability = availability        # hash of availability. i.e. Monday: "Available" 
+        @availability = availability        # hash of availability. i.e. Monday: "Available" - This is easy to see what day has what kind of availibily. 
     end
 
     # displays the room type and it's price

@@ -1,3 +1,5 @@
+# Beautiful headers for our main app
+
 require 'tty-prompt'
 
 # Line for the headers
