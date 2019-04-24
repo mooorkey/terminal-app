@@ -1,5 +1,5 @@
 require_relative 'cat'
-require_relative '../methods/pretty'
+require_relative '../methods/headers'
 
 class Booking
     attr_reader :days
@@ -39,7 +39,7 @@ class Booking
         @activities.each { |activity| puts "       *#{activity.name} - $#{activity.price}"}
         puts
         puts HEADER_LINE
-        puts "#{activities.length} activities - $#{activities_price}".rjust(HEADER_LENGTH)
+        puts "#{@activities.length} activities - $#{activities_price}".rjust(HEADER_LENGTH)
     end
 
     # displays if there are no activities on the order
@@ -47,16 +47,18 @@ class Booking
 
     end
 
-    # calculates the booking price
-    def booking_price
-        return @room.price.to_f * @days.length + activities_price
-    end
 
     # calculates the total price of the activities
     def activities_price
         activities_total = 0
-        @activities.each { |activity| activities_total += activity.price}
+        @activities.each { |activity| activities_total += activity.price.to_f}
         return activities_total
+    end
+
+    
+    # calculates the booking price
+    def booking_price
+        return @room.price.to_f * @days.length + activities_price
     end
 
 end
