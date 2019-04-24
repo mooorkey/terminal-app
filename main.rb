@@ -66,7 +66,9 @@ while true
         when 1
             if cat.booking
                 clear
+                puts
                 puts "You already have a booking! \n\n"
+                puts
             else
                 new_booking_header
 
