@@ -76,7 +76,7 @@ We worked together with pair programming to create the basic structure of the ap
 
 #### Day 2
 
-In the morning we worked on finalising the functionality of the app as well as commenting, the look of the app, and cleaning up code. We implemented a stretch goal to include activities to book into. 
+In the morning we worked on finalising the functionality of the app as well as commenting, the look of the app, and cleaning up code. We implemented a stretch goal to include activities to book into.
 
 In the afternoon we worked on documentation for the app.
 
@@ -110,8 +110,6 @@ Day 2
 
 - `classes/booking.rb` is initialized once the user has selected a room and days. It represents the booking. Activities can been added to the booking optionally. It displays the booking and it also calculates the total price of the booking. 
 
-- `classes/activity.rb` is similar to the room class, but instead holds different activities that can optionally be added to the booking. The individual activities are sub classes to the main activity super class. 
-
 - `methods/headers.rb` is a file that holds some methods to make the main flow of the program look pretty. 
 
 
@@ -144,7 +142,9 @@ Some possible future implementations include:
 * Allow the user to enter information regarding special considerations for their cat, for example if their cat has any behavioural, medical or dietary concerns.
 * Style the colours of the app using the gem [pastel](https://github.com/piotrmurach/pastel)
 
+We tried to implement a future extension - adding activities to the order. Code for this can be viewed in the folder `./activities` - this is just a copy of where the app was at when the extension was abandoned. This would have used an activity class and added the activities to the booking in a similar way to the rooms being added. We just ran out of time to implement it the way we would have liked. 
 
+![extension - activities](./docs/2019-04-24-activities.jpg)
 
 
 
