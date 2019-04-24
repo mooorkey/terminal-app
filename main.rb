@@ -153,7 +153,7 @@ while true
             if cat.booking
                 clear
                 puts "Thank you #{cat_name}!"
-                puts "We look forward to welcoming you at the Purr Seasons on #{cat.booking.days[0]}."  # check this
+                puts "We look forward to welcoming you at the Purr Seasons on #{cat.booking.days[0]}." 
                 puts "Have a purr-fect day!"
                 return
             else 

@@ -58,9 +58,10 @@ When planning this application, we brainstormed a couple of ideas. We decided to
 
 ### Initial Flow Chart
 
+This was our initial flow chart and structure ideas for app.
+
 ![flow chart](./docs/flow-chart.png)
 
-### app User/Workflow diagram
 
 Link to our testing spreadsheet - 
 
@@ -70,7 +71,28 @@ Talk about github and trello
 
 ### Project plan & timeline
 
-#### Trello Examples
+#### Day 1
+
+We worked together with pair programming to create the basic structure of the app. We utilized a gem TTY-Prompt for the menus so that our user can easily select multiple items at once. As we went along we tested our app with each new feature. 
+
+#### Day 2
+
+In the morning we worked on finalising the functionality of the app as well as commenting, the look of the app, and cleaning up code. We implemented a stretch goal to include activities to book into. 
+
+In the afternoon we worked on documentation for the app.
+
+#### Collaboration
+
+We used VS Code Live Share to work together. We commited to git regularly to back up our code. We also had a slack channel to communicate together. 
+
+![slack](./docs/2019-04-24-Slack.jpg "Slack")
+
+#### Trello
+
+We used Trello to organise what we needed to do. We had user stories to drive what features we needed to implement. We used custom fields to estimate the sizing (how long a feature would take) as well as the priority of the feature. We had labels for future enhancement ideas (stretch goals) as well as for any bugs we encountered. 
+
+Below are some examples of our Trello board at various points in our development.
+
 Day 1 
 ![trello day 1](./docs/2019-04-23-Trello.jpg "Trello Day 1")
 
