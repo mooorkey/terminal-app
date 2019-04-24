@@ -64,14 +64,12 @@ while true
                 clear
                 puts "You already have a booking! \n\n"
             else
-                clear
                 new_booking_header
 
                 # Display list of room types and select a room
                 room = hotel.select_room
                 
                 # Display room details
-                clear
                 new_booking_header
                 room.display_room
                 room.display_features
@@ -107,12 +105,10 @@ while true
 
         # View hotel room types
         when 3
-            clear
             view_rooms_header
             room = hotel.select_room
             
             # Display details of room selected
-            clear
             room_name_header(room.type)
             room.display_room
             room.display_features
@@ -123,11 +119,12 @@ while true
 
         # View Activities
         when 4
-            clear
-
+            activity_selection_header
             menu = hotel.create_activity_menu
             selection = hotel.select_activity_single(menu)
-            selection.display_activity(selection)
+
+            activity_header(selection.name)
+            selection.display_activity
             any_key
 
         # View hotel contact information
