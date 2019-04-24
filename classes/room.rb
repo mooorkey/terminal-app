@@ -54,7 +54,7 @@ class Room
 
     # user selects the days they would like for their booking, based on the room's availability
     def select_days_selection(days_selected, days_menu)
-        TTY::Prompt.new.multi_select("Please select your days to book in:", days_menu, cycle: true, marker: '>', echo: false, per_page: 7).each do |day|
+        TTY::Prompt.new.multi_select("Please select the days you would like to stay:", days_menu, cycle: true, marker: '>', echo: false, per_page: 7).each do |day|
             @availability[day.to_sym] = "Booked Out"
             days_selected.push(day)
         end

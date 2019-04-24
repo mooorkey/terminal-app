@@ -12,6 +12,7 @@ class Booking
 
     # displays the booking
     def display_booking(cat, hotel)
+        puts
         puts HEADER_LINE
         puts "#{cat.name.upcase}'S BOOKING".center(HEADER_LENGTH)
         puts HEADER_LINE

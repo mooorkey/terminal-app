@@ -3,7 +3,7 @@
 #                                  Terminal App
 #
 #                    Creatively and Lovingly Hand Crafted by
-#                      Natalie Sargent and Carlie Hamilton
+#                      Carlie Hamilton and Natalie Sargent
 #                 for our Coder Academy - Ruby Terminal Assignment
 #                   
 #  Version 1.3
@@ -26,13 +26,12 @@ clear
 welcome(hotel)
 
 # Enter Cat guest details
-puts
 puts "Hello Human!"
 puts
 puts "What is your cat's name please?"
 puts
 
-# Creating a cat - loop to make sure the user types in something
+# Creating a cat - loop to make sure the user enters a name
 while true
     cat_name = gets.chomp.capitalize
     if cat_name != "" 
@@ -45,7 +44,6 @@ end
 cat = Cat.new(cat_name)
 puts
 puts "Meow #{cat.name}!"
-puts
 
 # Main Application Loop
 while true

@@ -21,9 +21,11 @@ class Hotel
         puts HEADER_LINE
         puts "#{@name.upcase}".center(HEADER_LENGTH)
         puts HEADER_LINE
+        puts
         contact_info
         puts
         puts "   #{@about}"
+        puts
         puts HEADER_LINE
     end
 
@@ -75,7 +77,7 @@ class Hotel
     # menu to select multipile activites
     def select_activity_multiple(menu)
         activities_selected = []
-        TTY::Prompt.new.multi_select("Please select your actiities to book in:", menu, cycle: true, marker: '>', echo: false, per_page: 5).each do |activity|
+        TTY::Prompt.new.multi_select("Please select the actiities you would like to book:", menu, cycle: true, marker: '>', echo: false, per_page: 5).each do |activity|
             
             # pushing a activity object to the activities_selected array
             @activities.each { |activity_object| activities_selected.push(activity_object) if activity == activity_object.name}
