@@ -14,22 +14,25 @@ require 'tty-prompt'
 require_relative './classes/hotel'
 require_relative './classes/room'
 require_relative './classes/cat'
+require_relative './classes/activity'
 require_relative './classes/booking'
 require_relative './methods/headers'
 
 # Create a hotel and rooms
-hotel = Hotel.new.add_room(Deluxe.new).add_room(Luxury.new).add_room(Grey.new)
+hotel = Hotel.new.add_room(Deluxe.new).add_room(Luxury.new).add_room(Grey.new).add_activity(Spa.new).add_activity(Catertainment.new).add_activity(Cafe.new)
 
 # Welcome message
 clear
 welcome(hotel)
 
 # Enter Cat guest details
-puts "\n    Hello Human! \n\n"
-puts "Please enter your cat's name right meow: \n\n"
+puts
+puts "Hello Human!"
+puts
+puts "What is your cat's name please?"
+puts
 
-# Creating a cat - loop to make sure the user types in something. This exits out of the loop if the user does not type anything in after 3 tries. 
-# In the future we could use some regex to make sure the user formats a cat name to some standard, such as starting with a letter. 
+# Creating a cat - loop to make sure the user types in something. This exits out of the loop if the user does not type anything in after 3 tries. In the future we could use some regex to make sure the user formats a cat name to some standard, such as starting with a letter. 
 cat_name_count = 0
 while cat_name_count < 3
     cat_name = gets.chomp.capitalize
@@ -40,19 +43,19 @@ while cat_name_count < 3
         cat_name_count += 1
         if cat_name_count == 3
             clear
-            puts "\n\n You must have a shy cat..."
+            puts "You must have a shy cat!"
             cat_name = "The Cat Without A Name"
         else
             puts "Ooops, please enter your cat's name:"
         end
     end
 end
-
-# Creates a new cat object, and reaffirms to the user their input with a greeting. 
 cat = Cat.new(cat_name)
-puts "\n\n Meow #{cat.name}!"
+puts
+puts "Meow #{cat.name}!"
+puts
 
-# Main Application Loop - menu options
+# Main Application Loop
 while true
     
     # Display hotel menu options
@@ -61,8 +64,9 @@ while true
         menu.choice('Make a new booking', 1)
         menu.choice('View an existing booking', 2)
         menu.choice('View hotel rooms', 3)
-        menu.choice('View hotel contact information', 4)
-        menu.choice('Exit', 5)
+        menu.choice('View activites', 4)
+        menu.choice('View hotel contact information', 5)
+        menu.choice('Exit', 6)
 
         case selection
 
@@ -70,28 +74,43 @@ while true
         when 1
             if cat.booking
                 clear
-                welcome(hotel)
-                puts "\n\n\n You already have a booking! \n\n\n"
+                puts
+                puts "You already have a booking! \n\n"
+                puts
             else
-                # Display list of room types and select a room
                 new_booking_header
+
+                # Display list of room types and select a room
                 room = hotel.select_room
                 
-                # Displays the room details, including availability
-                # The user selects the days they want for the booking
+                # Display room details
                 new_booking_header
                 room.display_room
                 room.display_features
+                puts
                 booking_days = room.select_days
 
-                # creates the booking
-                cat.booking = Booking.new(room, booking_days)
+                # Would the user like to add activities?
+                new_booking_header
+                option = question_activity
+                if option == "No"
+                    # Create a new booking with room type and booking days
+                    cat.booking = Booking.new(room, booking_days)
 
-                # Displays the booking for user including price
+                else
+                    # Add activities to the booking
+                    activity_selection_header
+                    activity_menu = hotel.create_activity_menu
+                    selected_activities = hotel.select_activity_multiple(activity_menu)
+                    cat.booking = Booking.new(room, booking_days, selected_activities)
+                    p cat.booking
+                end
+
+                # Display booking for user including price
                 clear
                 puts "Thank you for your booking!"
                 cat.booking.display_booking(cat, hotel)
-                back_main_menu
+                any_key
             end
 
         # View an existing booking
@@ -101,17 +120,14 @@ while true
                 # View an existing booking
                 clear
                 cat.booking.display_booking(cat, hotel)
-                back_main_menu
+                any_key
             else
-                # Or, if there is no booking, displays an error message
                 clear
-                welcome(hotel)
-                puts "\n\n  Ooops, sorry, you don't have a booking yet! \n\n\n"
+                puts "Ooops, sorry, you don't have a booking yet! \n\n"
             end
 
         # View hotel room types
         when 3
-            # user selects a room type to view
             view_rooms_header
             room = hotel.select_room
             
@@ -120,25 +136,33 @@ while true
             room.display_room
             room.display_features
             room.display_availability
-            back_main_menu
+            any_key
 
-        # View about the hotel and contact information
+        # View Activities
         when 4
+            activity_selection_header
+            menu = hotel.create_activity_menu
+            selection = hotel.select_activity_single(menu)
+
+            activity_header(selection.name)
+            selection.display_activity
+            any_key
+
+        # View hotel contact information
+        when 5
             clear
             hotel.hotel_info
-            back_main_menu
+            # Return to main menu 
+            any_key
 
         # Quit
-        when 5
-            # Goodbye message if the user has created a booking
+        when 6
             if cat.booking
                 clear
                 puts "Thank you #{cat_name}!"
                 puts "We look forward to welcoming you at the Purr Seasons on #{cat.booking.days[0]}." 
                 puts "Have a purr-fect day!"
                 return
-            
-            # Goodbye message if a booking hasn't been created
             else 
                 clear
                 puts "Thank you #{cat_name}"
@@ -149,3 +173,6 @@ while true
         end
     end
 end
+
+
+

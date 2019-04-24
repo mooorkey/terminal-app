@@ -12,7 +12,7 @@ def clear
 end
 
 # Returns user to the main menu
-def back_main_menu
+def any_key
     puts "\n\n Press any key to go back to the main menu"
     $stdin.getch
     clear

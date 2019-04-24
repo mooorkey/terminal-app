@@ -121,13 +121,15 @@ One difficulty with using this gem is we had to change our data (such as a room'
 
 It is recommended to use a font that supports unicode for this gem to look extra pretty.
 
-#### Corner Cases
+#### Corner Cases - Some Examples
 
-Some of the corner cases we encountered include:
+- If the cat name is accidently not given, we implemented a loop so that the user has the opportunity to write in the cat's name. If the user does not enter anything after three tries, it creates a cat object named "The Cat Without A Name." In future extensions we could implement the program so that a cat is created only when making a booking, or have the input of only being accepted with certain characters in a certain format with regex. 
 
-- If the cat name is accidently not given, we implimented a loop so that the user has the opportunity to write in the cat's name. 
+- We avoided many corner cases by having our navigation through the TTY-Prompt. One challenge using this gem was to format our data for the prompt, and also getting the correct data we want back from the menu (such as changing a string to a symbol, to update our availability hash). However, using this meant that we could avoid a user inputting an invalid option.
 
-#### Future Extentions
+- There was the possibility of the user selecting "view booking" if a booking hadn't been booked in yet. We set the status of a booking to nil inside the cat class when it is initialized so that we could create an if statement around if there was a booking or not. This way, if the user tries to view a booking that doesn't exist, they will see a friendly error message. 
+
+#### Future Extensions
 
 The code has been designed to be modular and DRY as possible, with thought toward how the app could be modified in the future. 
 

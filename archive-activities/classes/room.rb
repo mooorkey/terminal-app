@@ -22,7 +22,6 @@ class Room
         puts
         puts "Features:"
         @features.each { |feature| puts "       * #{feature}"}
-        puts
     end
 
     # displays the room's availability
