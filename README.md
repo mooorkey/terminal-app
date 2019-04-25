@@ -8,7 +8,7 @@ by Carlie Hamilton and Natalie Sargent
 
 Link to the repository - [https://github.com/natkat9/terminal-app](https://github.com/natkat9/terminal-app "Our Github Repository")
 
-## About the App
+## ℹ️ About the App
 
 ### Description
 
@@ -44,7 +44,7 @@ The app will display a personalised message on exit, depending on if you have ma
 `gem install bundler`
 
 3. Fork or clone this repository down to your local computer
-4. To install the gem(s) required, navigate to the location of this repostitory on your computer and use the command:
+4. To install the gem(s) required, navigate to the location of the `/src` folder in repostitory on your computer, and use the command:
 
 `bundle install`
 
