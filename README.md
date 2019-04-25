@@ -1,4 +1,4 @@
-# PURR SEASONS
+# 🐱 PURR SEASONS
 
 ## Ruby Terminal App
 
@@ -10,13 +10,7 @@ Link to the repository - [https://github.com/natkat9/terminal-app](https://githu
 
 ### Description
 
-This app is a MVP of a Cat Hotel Booking System for the Purr Seasons Cat Hotel. The app allows a user to book a hotel stay for their cat, in a 7 day period. 
-
-The user can create a booking for their cat by choosing a room type and the days that they would like to book their cat in.
-
-The user is able to look at the different room types and see additional information for each. They are also able to see the details of the hotel, such as the contact information and a little bit about the hotel.
-
-Once the user has created a booking they are able to see the booking that they created, including the total price of the room they selected.
+This app is a MVP of a Cat Hotel Booking System for the Purr Seasons Cat Hotel. The aim of this MVP was to create a booking system that allows one cat to create one booking, with a choice of several rooms in a seven day period.
 
 ### Functionality
 
@@ -56,7 +50,7 @@ The app will display a personalised message on exit, depending on if you have ma
 
 `ruby main.rb`
 
-## Design & Planning process
+## 📝 Design & Planning process
 
 When planning this application, we brainstormed a couple of ideas. We initially thought of a medication tracking app, but we felt that it was important to keep that app simple so that it would be accessible for it's target audience - and because of this we wouldn't have an opportunity to have some fun.
 
@@ -71,6 +65,10 @@ This was our initial flow chart and structure ideas for app.
 ![flow chart](./docs/flow-chart.png)
 
 ### Timeline
+
+#### Day 0
+
+Together we brainstormed app ideas and worked on potential structure and flow of these ideas, before settling on the Cat Hotel Booking System. 
 
 #### Day 1
 
@@ -90,7 +88,9 @@ We used VS Code Live Share to work together. We commited to git regularly to bac
 
 #### Trello
 
-We used Trello to organise what we needed to do. We had user stories to drive what features we needed to implement. We used custom fields to estimate the sizing (how long a feature would take) as well as the priority of the feature. We had labels for future enhancement ideas (stretch goals) as well as for any bugs we encountered. 
+We used Trello to organise what we needed to do. We had user stories to drive what features we needed to implement. We used custom fields to estimate the sizing (how long a feature would take) as well as the priority of the feature (low, med and high priority). We had labels for future enhancement ideas (stretch goals) as well as for any bugs we encountered.
+
+We ended up not assigning tasks to people in trello as we did a lot of pair programing together.
 
 Below are some examples of our Trello board at various points in our development.
 
@@ -115,16 +115,15 @@ We tested our code at every stage of the process, and recorded our tests in a sp
 
 - `main.rb` is the main document that controls the flow of the program.
 
-- `classes/hotel.rb` holds the Hotel class and represents the hotel. This class holds the information of the hotel, such as the address and phone number. It also holds a list of the rooms in the hotel, and the activities associated with the hotel. It is used for methods that show the rooms and activities all together. 
+- `classes/hotel.rb` holds the Hotel class and represents the hotel. This class holds the information of the hotel, such as the address and phone number. It also holds a list of the rooms in the hotel. It is used for methods that show the rooms all together.
 
 - `classes/room.rb` holds the Room super class, as well as it's sub classes (which represents different types of rooms). This class deals with methods that pertain to a room, such as showing the availability of a room.
 
-- `classes/cat.rb` holds the cat class. The cat class represents the user, and holds the details of the cat as well as a booking that is associated with the cat when it (the booking) is created. The booking is initialized with the cat as "nil" - this is used during the main flow of the program, as different menus show different things depending on if there is a booking or not. 
+- `classes/cat.rb` holds the cat class. The cat class represents the user, and holds the details of the cat as well as a booking that is associated with the cat when it (the booking) is created. The booking is initialized with the cat as "nil" - this is used during the main flow of the program, as different menus show different things depending on if there is a booking or not.
 
-- `classes/booking.rb` is initialized once the user has selected a room and days. It represents the booking. Activities can been added to the booking optionally. It displays the booking and it also calculates the total price of the booking. 
+- `classes/booking.rb` is initialized once the user has selected a room and days. It represents the booking. The methods display the booking and it also calculates the total price of the booking.
 
-- `methods/headers.rb` is a file that holds some methods to make the main flow of the program look pretty. 
-
+- `methods/headers.rb` is a file that holds some methods to make the main flow of the program look pretty, including fancy headers.
 
 #### Gem 💎 TTY-Prompt
 
@@ -148,7 +147,7 @@ The code has been designed to be modular and DRY as possible, with thought towar
 
 Some possible future implementations include:
 
-- Be able to book the cats into activities while on their stay.
+- A user is able to go to a previous screen during the booking process if they made a mistake.
 - Display unicode "X" on the room information page when a day is booked out.
 - Currently the app does not save the booking in any way. We would implement saving the booking and also sending a copy of the booking to the user's email.
 - A user will be able to log in with a password, store all their bookings and see past bookings.
@@ -165,9 +164,11 @@ We tried to implement a future extension - adding activities to the order. Code 
 
 ### Accessibility
 
-The app has clear instructions for screen readers, however to make the app more accessible to the vision impaired we could implement a text-to-speech gem in the future.  
+The app has clear instructions for screen readers, however to make the app more accessible to the vision impaired we could implement a text-to-speech gem in the future.
 
-The TTY-Prompt gem has made the app more accessible for a command line interface, as the user doesn't have to type in their desired choice. This also makes it harder for the user to input an incorrect response that may bring up an error.  
+The app is able to be navigated using only the keyboard, and the text colour and size has not been manually changed - so the user can set their own peferred colours and font size with their terminal.
+
+The TTY-Prompt gem has made the app more accessible for a command line interface, as the user doesn't have to type in their desired choice. This also makes it harder for the user to input an incorrect response that may bring up an error.
 
 ### Potential Ethical, Legal and Broader Societal Implications
 
@@ -176,3 +177,5 @@ In a future extensions we will have to consider the legal and ethical ramificati
 The hotel must consider the safety and wellbeing of their cat guests.  In a future extension, we would add the facility for user to record any special needs requests, for example if their cat has any medical, dietary or behavioural concerns that the hotel may need to accommodate.
 
 (Tongue in cheek:) Dogs may feel discriminated against for not being allowed in the Purr Seasons, but for the health and safety of our guests, this is a dog-free hotel.
+
+Apart from only allowing cats at the hotel, we did not discover any other political, cultural, racial or gender issues with this app. After all, everyone likes cat videos.
