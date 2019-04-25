@@ -11,6 +11,9 @@ class Room
                                             # Also makes styling it easy with an each loop for display purposes (and this data is mainly to display to the user). 
         @price = '%.2f' % price
         @availability = availability        # hash of availability. i.e. Monday: "Available" - This is easy to see what day has what kind of availibily. 
+                                            # Upon reflection, in the next update of this app we would change the structure of this data to an array of hashes, 
+                                            # i.e. [{day: "Monday", status: "Available"}, {day: "Tuesday", status: "Booked Out"}]
+                                            # as we believe this would make the data even easier to access
     end
 
     # displays the room type and it's price

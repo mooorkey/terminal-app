@@ -52,7 +52,7 @@ The app will display a personalised message on exit, depending on if you have ma
 
 `ruby main.rb`
 
-## 📝 Design & Planning process
+## 📝 Design & Planning Process
 
 When planning this application, we brainstormed a couple of ideas. We initially thought of a medication tracking app, but we felt that it was important to keep that app simple so that it would be accessible for it's target audience - and because of this we wouldn't have an opportunity to have some fun.
 
@@ -82,7 +82,9 @@ In the morning we worked on finalising the functionality of the app as well as c
 
 In the afternoon we worked on documentation for the app. We ran out of time to complete the activities extension, so the extra code was archived.
 
-#### Collaboration
+## 💻 App Creation
+
+### Collaboration
 
 We used VS Code Live Share to work together. We commited to git regularly to back up our code. We also had a slack channel to communicate together.
 
@@ -105,7 +107,7 @@ Includes user stories:
 Day 2
 ![trello day 2](./docs/2019-04-24-Trello01.jpg "Trello Day 2")
 
-### Testing
+### ✔️ Testing
 
 We tested our code at every stage of the process, and recorded our tests in a spreadsheet.
 
@@ -127,11 +129,13 @@ We tested our code at every stage of the process, and recorded our tests in a sp
 
 - `methods/headers.rb` is a file that holds some methods to make the main flow of the program look pretty, including fancy headers.
 
-#### Gem 💎 TTY-Prompt
+### Gem 💎 TTY-Prompt
 
 We chose to use the TTY-Prompt gem, as this cuts out user error when accessing the menus. The user can not input incorrect information, but instead selects from a list.
 
 One difficulty with using this gem is we had to change our data (such as a room's availability that is stored in a hash) to a format that the menu recognizes.  We believe that it is worth this extra step in the code, as we do not have to worry about incorrect user input, it makes navigating the application easier, and also because the menu is formatted nicely.
+
+We could have captured the original data so that is matched the requirements of the gem, but we thought that the code would be more extensible for future changes if we kept it as is, and changed to specifically for the menu. 
 
 It is recommended to use a font that supports unicode for this gem to look extra pretty.
 
@@ -142,6 +146,8 @@ It is recommended to use a font that supports unicode for this gem to look extra
 - We avoided many corner cases by having our navigation through the TTY-Prompt. One challenge using this gem was to format our data for the prompt, and also getting the correct data we want back from the menu (such as changing a string to a symbol, to update our availability hash). However, using this meant that we could avoid a user inputting an invalid option.
 
 - There was the possibility of the user selecting "view booking" if a booking hadn't been booked in yet. We set the status of a booking to nil inside the cat class when it is initialized so that we could create an if statement around if there was a booking or not. This way, if the user tries to view a booking that doesn't exist, they will see a friendly error message.
+
+- At the moment if you select the days out of order, it will display them out of order in the booking. The user can also miss a day (for instance, books into a Monday, then Wednesday). A future extension could be to make it so that the user can only book into consecutive days, by implementing a "start date" and "end date" for the booking.
 
 #### Future Extensions
 
@@ -163,6 +169,8 @@ Some possible future implementations include:
 We tried to implement a future extension - adding activities to the order. Code for this can be viewed in the folder `./archive-activities` - this is just a copy of where the app was at when the extension was abandoned. This would have used an activity class and added the activities to the booking in a similar way to the rooms being added. We just ran out of time to implement it the way we would have liked.
 
 ![extension - activities](./docs/2019-04-24-activities.jpg)
+
+## 🌏 Impact
 
 ### Accessibility
 
