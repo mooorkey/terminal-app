@@ -4,8 +4,8 @@ require_relative '../methods/headers'
 class Hotel
     attr_reader :rooms, :name
 
-    # We have initialized the hotel with all this data
-    # If in the future we were to expand to different locations, we could create sub Hotel classes, and hard-code the information in there. 
+    # We have initialized the hotel with all this data - so that the data is in one location if it needs to be modified.
+    # If in the future we were to expand to different locations, we could create Hotel subclasses, and hard-code the information in there. 
     def initialize
         @name = "Purr Seasons"
         @address = "32 Cat St, Tabby Town"
