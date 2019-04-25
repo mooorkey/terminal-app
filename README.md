@@ -4,6 +4,8 @@
 
 by Carlie Hamilton and Natalie Sargent
 
+![Purr Seasons Terminal App](./docs/purr-gif.gif)
+
 Link to the repository - [https://github.com/natkat9/terminal-app](https://github.com/natkat9/terminal-app "Our Github Repository")
 
 ## About the App
