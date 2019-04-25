@@ -3,7 +3,7 @@
 #                                  Terminal App
 #
 #                    Creatively and Lovingly Hand Crafted by
-#                      Natalie Sargent and Carlie Hamilton
+#                      Carlie Hamilton and Natalie Sargent
 #                 for our Coder Academy - Ruby Terminal Assignment
 #                   
 #  Version 1.3
