@@ -1,8 +1,8 @@
-require 'tty-prompt'
+require_relative './prompt.rb'
 
 # The Room class holds the features, price and availability of each room type. Room types are defined as sub classes. 
 # This class' methods relate displaying various room information, and changing the room's availability, for instance. 
-class Room
+class Room_Info
     attr_reader :type, :features, :price, :availability
 
     def initialize(type, features, price, availability)
@@ -36,7 +36,32 @@ class Room
         puts "Availability:"
         @availability.each { |day, status| puts "       * #{day}: #{status}"}
     end
+end
 
+# Room subclasses - created so that we hard code the data in, less chance of data being incorrect, 
+# and the data is all in one place if multiple of the same room type is created
+class Deluxe < Room_Info
+    def initialize
+        super("Deluxe", ["Two story scratching post", "Plush bedding", "Self-filling bubbling water", "Wide range of jingly toys", "All meals included"], 300, {Monday: "Available", Tuesday: "Available", Wednesday: "Available", Thursday: "Available", Friday: "Available", Saturday: "Available", Sunday: "Available"})
+    end
+end
+
+class Luxury < Room_Info
+    def initialize
+        super("Luxury", ["Three story scratching post", "Ultra plush bedding", "Self-filling bubbling water", "Wide range of jingly toys", "Daily cat massage", "Ocean views", "All meals included"], 350, {Monday: "Available", Tuesday: "Available", Wednesday: "Available", Thursday: "Available", Friday: "Available", Saturday: "Booked Out", Sunday: "Booked Out"})
+    end
+end
+
+class Grey < Room_Info
+    def initialize
+        super("Grey Nomad", ["Perfect for older cats", "Ground level scratching post", "Plush bedding", "Quiet position", "Special diet for mature tastes"], 270, {Monday: "Available", Tuesday: "Available", Wednesday: "Booked Out", Thursday: "Booked Out", Friday: "Available", Saturday: "Available", Sunday: "Available"})
+    end
+end
+
+class Manage_Room
+    def initialize(room)
+        @availability = room.availability
+    end
     # selects the days for a booking, based on room's availability
     # the method for selcting the days has been split into several methods so that each method has an individual & specific purpose. 
     def select_days
@@ -61,29 +86,9 @@ class Room
 
     # user selects the days they would like for their booking, based on the room's availability
     def select_days_selection(days_selected, days_menu)
-        TTY::Prompt.new.multi_select("Please select your days to book in:", days_menu, cycle: true, marker: '>', echo: false, per_page: 7).each do |day|
+        Prompt.instance.multi_select("Please select your days to book in:", days_menu, cycle: true, marker: '>', echo: false, per_page: 7).each do |day|
             @availability[day.to_sym] = "Booked Out"                        # the string is converted back to a symbol, and availability is changed
             days_selected.push(day)
         end
-    end
-end
-
-# Room subclasses - created so that we hard code the data in, less chance of data being incorrect, 
-# and the data is all in one place if multiple of the same room type is created
-class Deluxe < Room
-    def initialize
-        super("Deluxe", ["Two story scratching post", "Plush bedding", "Self-filling bubbling water", "Wide range of jingly toys", "All meals included"], 300, {Monday: "Available", Tuesday: "Available", Wednesday: "Available", Thursday: "Available", Friday: "Available", Saturday: "Available", Sunday: "Available"})
-    end
-end
-
-class Luxury < Room
-    def initialize
-        super("Luxury", ["Three story scratching post", "Ultra plush bedding", "Self-filling bubbling water", "Wide range of jingly toys", "Daily cat massage", "Ocean views", "All meals included"], 350, {Monday: "Available", Tuesday: "Available", Wednesday: "Available", Thursday: "Available", Friday: "Available", Saturday: "Booked Out", Sunday: "Booked Out"})
-    end
-end
-
-class Grey < Room
-    def initialize
-        super("Grey Nomad", ["Perfect for older cats", "Ground level scratching post", "Plush bedding", "Quiet position", "Special diet for mature tastes"], 270, {Monday: "Available", Tuesday: "Available", Wednesday: "Booked Out", Thursday: "Booked Out", Friday: "Available", Saturday: "Available", Sunday: "Available"})
     end
 end
